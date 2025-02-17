@@ -25,6 +25,6 @@ function Header() {
       <MenuButton>마이페이지</MenuButton>
       <MenuButton>로그인/회원가입</MenuButton>
     </Container>
-  ); // 짠
+  );
 }
 export default Header;
