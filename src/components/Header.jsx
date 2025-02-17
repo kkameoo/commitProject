@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -15,13 +16,26 @@ const MenuButton = styled.button`
 `;
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <Container>
-      <MenuButton>로고</MenuButton>
+      <MenuButton
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        로고
+      </MenuButton>
       <MenuButton>commit 소개</MenuButton>
       <MenuButton>고객서비스</MenuButton>
       <MenuButton>회원테스트</MenuButton>
-      <MenuButton>회원리뷰</MenuButton>
+      <MenuButton
+        onClick={() => {
+          navigate("/Review");
+        }}
+      >
+        회원리뷰
+      </MenuButton>
       <MenuButton>마이페이지</MenuButton>
       <MenuButton>로그인/회원가입</MenuButton>
     </Container>
