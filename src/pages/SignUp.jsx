@@ -1,10 +1,14 @@
 import Header from "../components/header";
+import SignUpForm from "../signup_components/SignUpForm";
+import Footer from "../components/Footer";
 
 function SignUp() {
   return (
     <>
       <Header />
-      <div>회원가입</div>
+      <SignUpForm />
+      <Footer />
+
     </>
   );
 }

@@ -2,6 +2,8 @@ import { useState } from "react";
 import InputField from "./InputField";
 import AuthButton from "./AuthButton";
 
+
+
 function LoginForm() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +14,7 @@ function LoginForm() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh", // 화면 높이 기준 중앙 배치
+        height: "50%", // 화면 높이 기준 중앙 배치
       }}
     >
       <div 
