@@ -1,11 +1,13 @@
 import Header from "../components/header";
+import LoginForm from "../../signin_components/LoginForm";
 
 function SignIn() {
   return (
     <>
       <Header />
-      <div>로그인</div>
+      <LoginForm />
     </>
   );
 }
+
 export default SignIn;
