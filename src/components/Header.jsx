@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100%;
+  width: 94.15rem;
   height: 10rem;
   margin: 0;
   display: flex;
@@ -31,12 +31,18 @@ function Header() {
       <MenuButton>회원테스트</MenuButton>
       <MenuButton
         onClick={() => {
-          navigate("/Review");
+          navigate("/Reviews");
         }}
       >
         회원리뷰
       </MenuButton>
-      <MenuButton>마이페이지</MenuButton>
+      <MenuButton
+        onClick={() => {
+          navigate("/MyPage");
+        }}
+      >
+        마이페이지
+      </MenuButton>
       <MenuButton>로그인/회원가입</MenuButton>
     </Container>
   );
