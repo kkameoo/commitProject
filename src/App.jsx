@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import Review from "./pages/Review";
 import Reviews from "./pages/Reviews";
 import MyPage from "./pages/MyPage";
+import Degree from "./pages/Degree";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/Review" element={<Review />} />
       <Route path="/Reviews" element={<Reviews />} />
       <Route path="/MyPage" element={<MyPage />} />
+      <Route path="/Degree" element={<Degree />} />
     </Routes>
   );
 }

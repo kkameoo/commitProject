@@ -9,8 +9,8 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #F2F2F2; /* 메인 컬러 */
-  border-bottom: 3px solid #D99696; /* 포인트 컬러 */
+  background-color: #f2f2f2; /* 메인 컬러 */
+  border-bottom: 3px solid #d99696; /* 포인트 컬러 */
 `;
 
 const LogoButton = styled.button`
@@ -33,15 +33,15 @@ const MenuButton = styled.button`
   height: 100%; /* 헤더 높이에 100% 맞추기 */
   font-size: 1.2rem; /* 폰트 크기 살짝 키우기 */
   font-weight: 600;
-  color: #D99696; /* 기본 폰트 색상 */
+  color: #d99696; /* 기본 폰트 색상 */
   background-color: transparent; /* 기본 배경 없음 */
   border: none; /* 테두리 없애기 */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #F28888; /* hover 시 배경 변경 */
-    color: #F2F2F2; /* hover 시 폰트 색 변경 */
+    background-color: #f28888; /* hover 시 배경 변경 */
+    color: #f2f2f2; /* hover 시 폰트 색 변경 */
   }
 `;
 
@@ -55,8 +55,8 @@ function Header() {
       <MenuButton>commit 소개</MenuButton>
       <MenuButton>고객서비스</MenuButton>
       <MenuButton>회원테스트</MenuButton>
-      <MenuButton onClick={() => navigate("/Review")}>회원리뷰</MenuButton>
-      <MenuButton>마이페이지</MenuButton>
+      <MenuButton onClick={() => navigate("/Reviews")}>회원리뷰</MenuButton>
+      <MenuButton onClick={() => navigate("/MyPage")}>마이페이지</MenuButton>
       <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton>
       <MenuButton onClick={() => navigate("/SignUp")}>회원가입</MenuButton>
     </HeaderContainer>
@@ -65,14 +65,9 @@ function Header() {
 
 export default Header;
 
-
-
-
-
 // import { useNavigate } from "react-router-dom";
 // import "../styles/header.css"; // CSS 파일 적용
 // import Logo from "../images/logo.jpeg"; // 로컬 이미지 import
-
 
 // function Header() {
 //   const navigate = useNavigate();
