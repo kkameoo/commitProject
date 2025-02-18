@@ -5,16 +5,18 @@ import SignIn from "./pages/SignIn";
 import Review from "./pages/Review";
 import Reviews from "./pages/Reviews";
 import MyPage from "./pages/MyPage";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
     <Routes>
-      <Route path="/Home" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/SignIn" element={<SignIn />} />
       <Route path="/Review" element={<Review />} />
       <Route path="/Reviews" element={<Reviews />} />
       <Route path="/MyPage" element={<MyPage />} />
+      <Route path="/Admin" element={<Admin />} />
     </Routes>
   );
 }

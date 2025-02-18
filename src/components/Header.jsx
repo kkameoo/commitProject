@@ -49,7 +49,7 @@ function Header() {
   const navigate = useNavigate();
   return (
     <HeaderContainer>
-      <LogoButton onClick={() => navigate("/Home")}>
+      <LogoButton onClick={() => navigate("/")}>
         <LogoImage src={Logo} alt="Commit Logo" />
       </LogoButton>
       <MenuButton>commit 소개</MenuButton>
