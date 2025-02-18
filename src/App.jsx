@@ -5,7 +5,10 @@ import SignIn from "./pages/SignIn";
 import Review from "./pages/Review";
 import Reviews from "./pages/Reviews";
 import MyPage from "./pages/MyPage";
+
 import Admin from "./pages/Admin";
+
+import Degree from "./pages/Degree";
 
 function App() {
   return (
@@ -17,6 +20,8 @@ function App() {
       <Route path="/Reviews" element={<Reviews />} />
       <Route path="/MyPage" element={<MyPage />} />
       <Route path="/Admin" element={<Admin />} />
+      <Route path="/Degree" element={<Degree />} />
+
     </Routes>
   );
 }

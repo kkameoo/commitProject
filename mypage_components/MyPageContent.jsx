@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import ReviewBar from "./Reviewbar";
+import TopBar from "./Topbar";
+import ApplyBar from "./ApplyBar";
 
 const Container = styled.div`
   width: 94.15rem;
@@ -15,46 +18,23 @@ const Box = styled.div`
   height: 35rem;
   border: 2px solid green;
 `;
-
-const TopBox = styled.div`
-  height: 10rem;
-  border: 2px solid red;
+const BottomBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  border: 2px solid lime;
+  width: 75rem;
 `;
-const InnerBox = styled.div`
-  width: 20rem;
-  height: 100%;
-  border: 2px solid yellow;
-`;
-const Name = styled.div`
-  border: 2px solid black;
-  height: 2.5rem;
-  text-align: center;
-  padding-top: 1rem;
-`;
-const Grade = styled.div`
-  border: 2px solid black;
-  height: 1.5rem;
-  text-align: center;
-`;
-const Photo = styled.div`
-  border: 2px solid black;
-  height: 4.3rem;
-`;
-const PhotoButton = styled.button``;
 
 function MyPageContent() {
   return (
     <Container>
       <Box>
-        <TopBox>
-          <InnerBox>
-            <Name>ㅁㅁㅁ님 안녕하세요</Name>
-            <Grade>회원유형: ㅁㅁㅁ</Grade>
-            <Photo>
-              <PhotoButton></PhotoButton>
-            </Photo>
-          </InnerBox>
-        </TopBox>
+        <TopBar />
+        <BottomBox>
+          <ReviewBar />
+          <ApplyBar />
+        </BottomBox>
       </Box>
     </Container>
   );
