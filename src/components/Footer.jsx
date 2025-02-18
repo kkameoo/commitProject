@@ -1,9 +1,23 @@
 import React from "react";
-import "../styles/footer.css"; // CSS 파일 분리하여 import
+import styled from "styled-components";
+
+const FooterContainer = styled.div`
+  margin-top: 50px;
+  width: 100%;
+  height: 180px;
+  background-color: #D99696; /* 헤더와 동일한 배경 */
+  color: #F2F2F2; /* 헤더와 동일한 폰트 색 */
+  text-align: center;
+  font-size: 0.8rem; /* 기존보다 가독성 높이기 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 수직 정렬 */
+  padding: 10px 0;
+`;
 
 function Footer() {
   return (
-    <div className="footer-container">
+    <FooterContainer>
       상호 커밋결혼정보(주) | 대표이사 한동길 | 서울시 강남구 커밋타워
       <br />
       사업자등록번호 111-11-11111 | 통신판매신고번호 : 강남11111 |
@@ -12,7 +26,7 @@ function Footer() {
       TEL : 1111-1111 | FAX : 02-111-1111 | EMAIL : WEBMASTER@COMMIT.COM
       <br />
       copyright © commit matchmaking consulting service. all rights reserved.
-    </div>
+    </FooterContainer>
   );
 }
 
