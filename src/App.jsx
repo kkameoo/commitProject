@@ -9,7 +9,7 @@ import MyPage from "./pages/MyPage";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/Home" element={<Home />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/SignIn" element={<SignIn />} />
       <Route path="/Review" element={<Review />} />

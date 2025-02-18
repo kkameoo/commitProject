@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../images/logo.jpeg"; // 로컬 이미지 import
+import Logo from "../images/Logo.png"; // 로컬 이미지 import
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -49,7 +49,7 @@ function Header() {
   const navigate = useNavigate();
   return (
     <HeaderContainer>
-      <LogoButton onClick={() => navigate("/")}>
+      <LogoButton onClick={() => navigate("/Home")}>
         <LogoImage src={Logo} alt="Commit Logo" />
       </LogoButton>
       <MenuButton>commit 소개</MenuButton>
