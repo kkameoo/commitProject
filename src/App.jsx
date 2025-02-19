@@ -9,6 +9,9 @@ import MyPage from "./pages/MyPage";
 import Admin from "./pages/Admin";
 
 import Degree from "./pages/Degree";
+import Career from "./pages/Career";
+import Profile from "./pages/Profile";
+import Family from "./pages/Family";
 
 function App() {
   return (
@@ -21,7 +24,9 @@ function App() {
       <Route path="/MyPage" element={<MyPage />} />
       <Route path="/Admin" element={<Admin />} />
       <Route path="/Degree" element={<Degree />} />
-
+      <Route path="/Career" element={<Career />} />
+      <Route path="/Profile" element={<Profile />} />
+      <Route path="/Family" element={<Family />} />
     </Routes>
   );
 }

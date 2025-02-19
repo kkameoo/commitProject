@@ -10,11 +10,11 @@ const Box = styled.div`
   font-size: 2rem;
   font-weight: 600;
 `;
-
-function TopBar() {
+// 학위, 직업 , 프로필, 가족사항 에서 공통으로 쓰이는 상단바
+function TopBar({ title }) {
   return (
     <Container>
-      <Box>학위/자격 정보</Box>
+      <Box>{title}</Box>
     </Container>
   );
 }

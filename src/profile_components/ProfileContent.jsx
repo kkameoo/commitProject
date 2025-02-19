@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ContentBox from "./ContentBox";
-import TopBar from "./TopBar";
+
+import { useNavigate } from "react-router-dom";
+import TopBar from "../components/TopBar";
 
 const Container = styled.div`
   width: 94.15rem;
@@ -21,17 +23,19 @@ const Box = styled.div`
 const Button = styled.button`
   margin: 5px 100px;
 `;
-function DegreeContent() {
+function ProfileContent({ ControllModal }) {
+  const navigate = useNavigate();
   return (
     <>
       <Container>
-        <TopBar />
+        <TopBar title={"신상 정보"} />
         <ContentBox />
         <Box>
-          <Button>제출</Button>
+          <Button onClick={() => ControllModal()}>수정</Button>
+          <Button onClick={() => navigate("/MyPage")}>뒤로가기</Button>
         </Box>
       </Container>
     </>
   );
 }
-export default DegreeContent;
+export default ProfileContent;

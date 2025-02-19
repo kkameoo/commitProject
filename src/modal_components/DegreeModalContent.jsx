@@ -1,27 +1,27 @@
 import styled from "styled-components";
+
 const Container = styled.div`
-  width: 85rem;
+  width: 100%;
   border: solid 2px pink;
 `;
 const Box = styled.div`
-  width: 85rem;
+  width: 100%;
   height: 3rem;
-  border: solid 2px grey;
+  border: solid 2px lime;
   display: flex;
 `;
 const Title = styled.div`
   border: solid 2px blue;
-  width: 10rem;
+  width: 25%;
   height: 100%;
 `;
 const Content = styled.div`
   border: solid 2px green;
-  width: 75rem;
+  width: 100%;
   height: 100%;
 `;
 const Writing = styled.input``;
-
-function ContentBox() {
+function DegreeModalContent() {
   return (
     <Container>
       <Box>
@@ -69,4 +69,4 @@ function ContentBox() {
     </Container>
   );
 }
-export default ContentBox;
+export default DegreeModalContent;

@@ -1,4 +1,4 @@
-import MyPageContent from "../../mypage_components/MyPageContent";
+import MyPageContent from "../mypage_components/MyPageContent";
 import Footer from "../components/Footer";
 import Header from "../components/header";
 

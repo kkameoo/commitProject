@@ -64,9 +64,27 @@ function TopBar() {
         >
           학위/자격정보
         </SignButton>
-        <SignButton>직장정보</SignButton>
-        <SignButton>신상정보</SignButton>
-        <SignButton>가족사항</SignButton>
+        <SignButton
+          onClick={() => {
+            navigate("/Career");
+          }}
+        >
+          직장정보
+        </SignButton>
+        <SignButton
+          onClick={() => {
+            navigate("/Profile");
+          }}
+        >
+          신상정보
+        </SignButton>
+        <SignButton
+          onClick={() => {
+            navigate("/Family");
+          }}
+        >
+          가족사항
+        </SignButton>
       </InnerSecondBox>
     </TopBox>
   );

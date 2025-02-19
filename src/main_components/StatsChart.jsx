@@ -1,11 +1,20 @@
 import styled from "styled-components";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 // ✅ 차트 데이터
 const data = [
   { name: "좋다", percent: 70 },
   { name: "안 써봤음", percent: 20 },
-  { name: "별로", percent: 10 }
+  { name: "별로", percent: 10 },
 ];
 
 // ✅ 컨테이너 스타일
@@ -28,9 +37,9 @@ const SummaryBoxContainer = styled.div`
 
 const SummaryBox = styled.div`
   // flex:1;
-  width: 400px;  
-  height: 120px; 
-  background:rgb(255, 222, 222);
+  width: 400px;
+  height: 120px;
+  background: rgb(255, 222, 222);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -39,7 +48,7 @@ const SummaryBox = styled.div`
 
 const SummaryTitle = styled.h3`
   font-size: 16px;
-  color:rgb(199, 81, 81);
+  color: rgb(199, 81, 81);
   margin-bottom: 5px;
 `;
 
@@ -85,9 +94,14 @@ function StatsChart() {
 
       {/* ✅ 기존 차트 */}
       <ChartWrapper>
-        <h3 style={{ textAlign: "center", color: "#D97777" }}>commit 고객 만족도</h3>
+        <h3 style={{ textAlign: "center", color: "#D97777" }}>
+          commit 고객 만족도
+        </h3>
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={data} margin={{ top: 20, right: 20, left: 0, bottom: 5 }}>
+          <BarChart
+            data={data}
+            margin={{ top: 20, right: 20, left: 0, bottom: 5 }}
+          >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />

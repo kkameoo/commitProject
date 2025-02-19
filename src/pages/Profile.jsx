@@ -1,10 +1,11 @@
 import { useState } from "react";
-import DegreeContent from "../degree_components/DegreeContent";
+
 import Footer from "../components/Footer";
 import Header from "../components/header";
 import Modal from "../modal_components/Modal";
+import ProfileContent from "../profile_components/ProfileContent";
 
-function Degree() {
+function Profile() {
   let content = null;
   const [open, setOpen] = useState(false);
 
@@ -12,18 +13,17 @@ function Degree() {
     open ? setOpen(false) : setOpen(true);
   };
   if (open === true) {
-    content = <Modal ControllModal={ControllModal} concept={"degree"} />;
+    content = <Modal ControllModal={ControllModal} concept={"profile"} />;
   } else if (open === false) {
     content = null;
   }
-
   return (
     <>
       <Header />
-      <DegreeContent ControllModal={ControllModal} />
+      <ProfileContent ControllModal={ControllModal} />
       {content}
       <Footer />
     </>
   );
 }
-export default Degree;
+export default Profile;
