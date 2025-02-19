@@ -16,13 +16,14 @@ const Content = styled.div`
   border: 2px solid gray;
 `;
 
-function ReviewContent() {
+function ReviewContent({ user }) {
+  console.log(user);
   return (
     <Container>
       <Box>
-        <Content>제목:</Content>
+        <Content>제목:{user.title} </Content>
         <Content>사진:</Content>
-        <Content>내용:</Content>
+        <Content>내용:{user.contents}</Content>
       </Box>
     </Container>
   );

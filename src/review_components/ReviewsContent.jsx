@@ -44,7 +44,7 @@ function ReviewsContent({ reviews }) {
         <Box key={item.id}>
           <Content
             onClick={() => {
-              navigate("/Review?id=" + item.id);
+              navigate("/Review?id=" + item.id, { state: { item } });
             }}
           >
             사진
