@@ -36,6 +36,14 @@ function LoginForm() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
+  const sendLoginInfo = () => {
+    const loginInfo = {
+      userId: userId,
+      password: password,
+    };
+    console.log(JSON.stringify(loginInfo));
+  };
+
   return (
     <Container>
       <FormWrapper>
@@ -53,7 +61,7 @@ function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <ButtonGroup>
-          <AuthButton text="로그인" primary />
+          <AuthButton sendLoginInfo={sendLoginInfo} text="로그인" primary />
         </ButtonGroup>
       </FormWrapper>
     </Container>
@@ -62,26 +70,16 @@ function LoginForm() {
 
 export default LoginForm;
 
-
-
-
-
-
-
-
-
 // import { useState } from "react";
 // import InputField from "./InputField";
 // import AuthButton from "./AuthButton";
-
-
 
 // function LoginForm() {
 //   const [userId, setUserId] = useState("");
 //   const [password, setPassword] = useState("");
 
 //   return (
-//     <div 
+//     <div
 //       style={{
 //         display: "flex",
 //         justifyContent: "center",
@@ -89,7 +87,7 @@ export default LoginForm;
 //         height: "50%", // 화면 높이 기준 중앙 배치
 //       }}
 //     >
-//       <div 
+//       <div
 //         style={{
 //           display: "flex",
 //           flexDirection: "column",
@@ -123,5 +121,3 @@ export default LoginForm;
 // }
 
 // export default LoginForm;
-
-

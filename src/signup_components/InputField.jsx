@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -21,7 +21,7 @@ const Input = styled.input`
   transition: border-color 0.3s ease-in-out;
 
   &:focus {
-    border-color: #F29188; /* 포커스 시 색 변경 */
+    border-color: #f29188; /* 포커스 시 색 변경 */
     outline: none;
   }
 `;
