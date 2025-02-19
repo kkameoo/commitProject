@@ -16,7 +16,8 @@ const fadeInDown = keyframes`
 // ✅ 정적 데이터 박스 컨테이너
 const SummaryBoxContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;  /* 가운데 정렬 */
+  gap: 20px;  /* ✅ 박스 간격 조절 */
   margin-bottom: 20px;
 
   ${({ $isVisible }) =>
