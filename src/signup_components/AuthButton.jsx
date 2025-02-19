@@ -18,8 +18,12 @@ const Button = styled.button`
   }
 `;
 
-function AuthButton({ text, primary }) {
-  return <Button primary={primary}>{text}</Button>;
+function AuthButton({ text, primary, addUser }) {
+  return (
+    <Button onClick={() => addUser()} primary={primary}>
+      {text}
+    </Button>
+  );
 }
 
 export default AuthButton;
