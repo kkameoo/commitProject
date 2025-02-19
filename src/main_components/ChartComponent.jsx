@@ -16,24 +16,34 @@ const ChartSection = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1300px;
-  margin: 50px auto;
-  gap: 100px; /* ✅ 차트와 문구 사이 간격 (더 넓게 조정 가능) */
+  margin: 10px auto;
+  gap: 100px;
 `;
 
-// ✅ 차트 컨테이너 (왼쪽 정렬, 크기 줄이기)
+// ✅ 차트 컨테이너 (왼쪽 정렬, 크기 조정)
 const ChartWrapper = styled.div`
-  width: 60%; /* ✅ 차트 크기 작게 (75% → 60%) */
-  min-height: 500px; /* ✅ 높이도 줄이기 */
+  width: 60%;
+  min-height: 500px;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: -124px; /* ✅ 차트를 더 왼쪽으로 이동 (-80px → -120px) */
+  margin-left: -124px;
+`;
+
+// ✅ 차트 제목 스타일
+const ChartTitle = styled.div`
+  font-size: 28px;
+  font-weight: bold;
+  color: #D9534F;
+  margin-bottom: 10px;
+  text-align: center;
 `;
 
 // ✅ 오른쪽 텍스트 & 버튼 컨테이너
 const InfoContainer = styled.div`
-  width: 30%; /* ✅ 문구 크기 조정 */
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -78,7 +88,8 @@ function ChartComponent() {
     <ChartSection>
       {/* ✅ 왼쪽 차트 */}
       <ChartWrapper>
-        <ResponsiveContainer width="100%" height={500}> {/* ✅ 높이 조절 (600 → 500) */}
+        <ChartTitle>&lt;COMMIT 성혼 달성률&gt;</ChartTitle> {/* ✅ 차트 위에 제목 추가 */}
+        <ResponsiveContainer width="100%" height={500}>
           <BarChart
             data={data}
             layout="vertical"
@@ -89,11 +100,23 @@ function ChartComponent() {
             <YAxis dataKey="year" type="category" width={100} />
             <Tooltip />
             <Legend />
-            <Bar dataKey="남성" fill="#F299B9" barSize={40}> {/* ✅ 막대 크기 줄이기 */}
-              <LabelList dataKey="남성" position="right" fill="#D9534F" fontSize={16} fontWeight="bold" />
+            <Bar dataKey="남성" fill="#F299B9" barSize={40}>
+              <LabelList
+                dataKey="남성"
+                position="right"
+                fill="#D9534F"
+                fontSize={16}
+                fontWeight="bold"
+              />
             </Bar>
             <Bar dataKey="여성" fill="#7673D9" barSize={40}>
-              <LabelList dataKey="여성" position="right" fill="#4A90E2" fontSize={16} fontWeight="bold" />
+              <LabelList
+                dataKey="여성"
+                position="right"
+                fill="#4A90E2"
+                fontSize={16}
+                fontWeight="bold"
+              />
             </Bar>
           </BarChart>
         </ResponsiveContainer>
@@ -103,18 +126,11 @@ function ChartComponent() {
       <InfoContainer>
         <InfoTitle>빠른 인연 맺기</InfoTitle>
         <InfoText>가입일로부터 7일 내 첫 만남이 주선됩니다 땡큐죠?</InfoText>
-        <InfoButton>가입비 안내</InfoButton>
-        <InfoButton>매칭 시스템 알아보기</InfoButton>
+        <InfoButton>바로 상담</InfoButton>
+        <InfoButton>매칭 시스템 한 눈에 보기</InfoButton>
       </InfoContainer>
     </ChartSection>
   );
 }
-
-
-
-
-
-
-
 
 export default ChartComponent;

@@ -29,10 +29,53 @@ const BackgroundContainer = styled.div`
   align-items: center;
   gap: 20px;
   width: 100vw;
-  height: 800px;
+  height: 800px; /* ✅ 기존 높이 유지 */
   overflow: hidden;
+  padding: 50px 0;
   box-sizing: border-box;
-  padding: 0 20px;
+  position: relative;
+`;
+
+// ✅ 버튼 스타일
+const PositionedButton = styled.button`
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #2196f3;
+  background-color: white;
+  color: #2196f3;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  z-index: 10;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #e3f2fd;
+  }
+`;
+
+// ✅ 각 버튼의 위치를 설정
+const Button1 = styled(PositionedButton)`
+  top: 20%;
+  left: 5%;
+`;
+
+const Button2 = styled(PositionedButton)`
+  top: 60%;
+  left: 5%;
+`;
+
+const Button3 = styled(PositionedButton)`
+  top: 20%;
+  right: 5%;
+`;
+
+const Button4 = styled(PositionedButton)`
+  top: 60%;
+  right: 5%;
 `;
 
 // ✅ 슬라이드 컨테이너 고정 너비
@@ -97,13 +140,19 @@ function PhotoGallery() {
 
   return (
     <BackgroundContainer>
+      {/* ✅ 대각선 배치 버튼 */}
+      <Button1>초혼</Button1>
+      <Button2>재혼</Button2>
+      <Button3>프리미어</Button3>
+      <Button4>하이엔드</Button4>
+
+      {/* ✅ 이미지 슬라이더 */}
       {imagesSet.map((imageArray, i) => (
         <SliderContainer key={i} ref={(el) => (sliderRefs.current[i] = el)}>
           <SlidesWrapper translateValue={translateY[i]}>
-            {/* ✅ 각 슬라이드에 맞는 이미지만 반복해서 표시 */}
-            {Array(2) // 📌 2번 반복하도록 설정
+            {Array(2)
               .fill(imageArray)
-              .flat() // 📌 중첩 배열을 평탄화
+              .flat()
               .map((src, index) => (
                 <SlideImage key={index} src={src} alt={`사진 ${index + 1}`} />
               ))}

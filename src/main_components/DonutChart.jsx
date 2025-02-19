@@ -52,7 +52,7 @@ const TextContainer = styled.div`
   padding: 20px;
   position: relative;
   z-index: 2;
-  margin-right: 40px;
+  margin-right: 100px;
   padding-left: 80px; 
 `;
 
@@ -62,8 +62,8 @@ const ChartContainer = styled.div`
   max-width: 700px;
   position: relative;
   z-index: 2;
-  margin-left: 10px; /* 
-  margin-right: 80px;
+  margin-left: 100px; 
+  margin-right: 180px;
 `;
 
 const CenterText = styled.div`
