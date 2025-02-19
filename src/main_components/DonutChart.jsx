@@ -19,12 +19,11 @@ const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 100%;
   width: 100%;
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 50px;
-  gap: 40px; /* ✅ 차트와 문구 사이 간격 */
   
   background-image: url(${bgImage});
   background-size: cover;
@@ -39,30 +38,32 @@ const Container = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(230, 230, 230, 0.4); /* ✅ 투명도 추가 */
+    background-color: rgba(230, 230, 230, 0.4);
     z-index: 1;
   }
 `;
 
-// ✅ 문구 컨테이너 (왼쪽)
+// ✅ 문구 컨테이너 (왼쪽) → flex 비율 조정 및 margin 수정
 const TextContainer = styled.div`
-  flex: 1;
+  flex: 1.2;
   font-size: 24px;
   font-weight: bold;
   color: #4E52A6;
   padding: 20px;
   position: relative;
-  z-index: 2; /* ✅ 배경 오버레이 위에 위치 */
-  margin-right: 100px; /* ✅ 문구 왼쪽 여백 조절 */
+  z-index: 2;
+  margin-right: 40px;
+  padding-left: 80px; 
 `;
 
-// ✅ 차트 컨테이너 (오른쪽)
+// ✅ 차트 컨테이너 (오른쪽) → flex 비율 조정 및 margin 수정
 const ChartContainer = styled.div`
   flex: 1;
-  max-width: 800px;
+  max-width: 700px;
   position: relative;
-  z-index: 2; /* ✅ 배경 오버레이 위에 위치 */
-  margin-left: -30px; /* ✅ 차트와 문구 사이 간격 조정 */
+  z-index: 2;
+  margin-left: 10px; /* 
+  margin-right: 80px;
 `;
 
 const CenterText = styled.div`
@@ -72,26 +73,26 @@ const CenterText = styled.div`
   transform: translate(-50%, -50%);
   font-size: 24px;
   font-weight: bold;
-  color: #fff;
+  color: #0D0D0D;
 `;
 
 const StyledLabel = styled.text`
   font-size: 14px;
   font-weight: bold;
   text-anchor: middle;
-  fill: #fff;
+  fill: #0D0D0D;
 `;
 
 const Title = styled.h2`
   font-size: 33px;
   font-weight: bold;
-  color: #fff;
+  color: #0D0D0D;
   margin-bottom: 10px;
 `;
 
 const Description = styled.p`
   font-size: 13px;
-  color: #ddd;
+  color: #0D0D0D;
   line-height: 1.6;
 `;
 
