@@ -21,19 +21,29 @@ const Content = styled.div`
   height: 100%;
 `;
 const Writing = styled.input``;
-function CareerModalContent() {
+function CareerModalContent({ career, handleChange }) {
   return (
     <Container>
       <Box>
         <Title>직업</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="job"
+            value={career.job}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>연봉</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="salary"
+            value={career.salary}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
     </Container>

@@ -23,11 +23,11 @@ const RadioWrapper = styled.label`
 const RadioInput = styled.input`
   width: 16px;
   height: 16px;
-  accent-color: #D99696; /* 선택된 라디오 버튼 색상 */
+  accent-color: #d99696; /* 선택된 라디오 버튼 색상 */
   cursor: pointer;
 `;
 
-function RadioField({ label, options, selected, onChange }) {
+function RadioField({ label, options, selected, onChange, name }) {
   return (
     <Container>
       <Label>{label}</Label>
@@ -35,10 +35,10 @@ function RadioField({ label, options, selected, onChange }) {
         <RadioWrapper key={index}>
           <RadioInput
             type="radio"
-            name={label}
+            name={name}
             value={option}
             checked={selected === option}
-            onChange={() => onChange(option)}
+            onChange={onChange}
           />
           {option}
         </RadioWrapper>
@@ -49,19 +49,18 @@ function RadioField({ label, options, selected, onChange }) {
 
 export default RadioField;
 
-
 // function RadioField({ label, options, selected, onChange }) {
 //     return (
 //       <div style={{ marginBottom: "15px" }}>
 //         <label style={{ display: "block", fontSize: "14px", marginBottom: "5px" }}>{label}</label>
 //         {options.map((option, index) => (
 //           <label key={index} style={{ marginRight: "10px" }}>
-//             <input 
-//               type="radio" 
-//               name={label} 
-//               value={option} 
-//               checked={selected === option} 
-//               onChange={() => onChange(option)} 
+//             <input
+//               type="radio"
+//               name={label}
+//               value={option}
+//               checked={selected === option}
+//               onChange={() => onChange(option)}
 //             />
 //             {option}
 //           </label>
@@ -69,6 +68,5 @@ export default RadioField;
 //       </div>
 //     );
 //   }
-  
+
 //   export default RadioField;
-  

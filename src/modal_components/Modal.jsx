@@ -3,6 +3,7 @@ import DegreeModalContent from "./DegreeModalContent";
 import CareerModalContent from "./CareerModalContent";
 import ProfileModalContent from "./ProfileModalContent";
 import FamilyModalContent from "./FamilyModalContent";
+import { useState } from "react";
 
 const Container = styled.div`
   position: fixed;
@@ -40,16 +41,117 @@ const Bottom = styled.div`
   justify-content: end;
 `;
 
-function Modal({ ControllModal, concept }) {
+function Modal({ ControllModal, concept, addState }) {
+  const [degree, setDegree] = useState({
+    middleSchool: "",
+    highSchool: "",
+    highSchoolMajor: "",
+    university: "",
+    universityMajor: "",
+    graduate: "",
+    graduateMajor: "",
+  });
+
+  const [career, setCareer] = useState({
+    salary: "",
+    job: "",
+  });
+
+  const [profile, setProfile] = useState({
+    weight: "",
+    height: "",
+    mbti: "",
+    hobby: "",
+    military: "",
+    religion: "",
+    wealth: "",
+    marriage: "",
+    disease: "",
+  });
+
+  const [family, setFamily] = useState({
+    mother: "",
+    father: "",
+    child: "",
+    sibling: "",
+  });
+
+  const degreeHandleChange = (e) => {
+    const { name, value } = e.target;
+
+    setDegree((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const careerHandleChange = (e) => {
+    const { name, value } = e.target;
+
+    setCareer((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const profileHandleChange = (e) => {
+    const { name, value } = e.target;
+
+    setProfile((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const familyHandleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFamily((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   let content = null;
   if (concept === "degree") {
-    content = <DegreeModalContent />;
+    content = (
+      <>
+        <DegreeModalContent degree={degree} handleChange={degreeHandleChange} />
+        <Bottom>
+          <Button onClick={() => addState(degree)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
   } else if (concept === "career") {
-    content = <CareerModalContent />;
+    content = (
+      <>
+        <CareerModalContent career={career} handleChange={careerHandleChange} />
+        <Bottom>
+          <Button onClick={() => addState(career)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
   } else if (concept === "profile") {
-    content = <ProfileModalContent />;
+    content = (
+      <>
+        <ProfileModalContent
+          profile={profile}
+          handleChange={profileHandleChange}
+        />
+        <Bottom>
+          <Button onClick={() => addState(profile)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
   } else if (concept === "family") {
-    content = <FamilyModalContent />;
+    content = (
+      <>
+        <FamilyModalContent family={family} handleChange={familyHandleChange} />
+        <Bottom>
+          <Button onClick={() => addState(family)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
   }
 
   return (
@@ -59,9 +161,6 @@ function Modal({ ControllModal, concept }) {
           <Button onClick={() => ControllModal()}>X</Button>
         </TopBar>
         {content}
-        <Bottom>
-          <Button>제출하기</Button>
-        </Bottom>
       </Box>
     </Container>
   );

@@ -50,7 +50,10 @@ function ReviewsContent({ reviews }) {
             사진
           </Content>
           <Title>{item.title}</Title>
-          <Date>{item.regDate}</Date>
+          <Date>
+            {item.regDate}
+            별점:{item.rating}
+          </Date>
         </Box>
       ))}
     </Container>

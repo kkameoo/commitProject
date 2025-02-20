@@ -21,31 +21,51 @@ const Content = styled.div`
   height: 100%;
 `;
 const Writing = styled.input``;
-function FamilyModalContent() {
+function FamilyModalContent({ family, handleChange }) {
   return (
     <Container>
       <Box>
         <Title>어머니</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="mother"
+            value={family.mother}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>아버지</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="father"
+            value={family.father}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>자녀</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="child"
+            value={family.child}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>형제/자매</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="sibling"
+            value={family.sibling}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
     </Container>

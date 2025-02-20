@@ -21,61 +21,106 @@ const Content = styled.div`
   height: 100%;
 `;
 const Writing = styled.input``;
-function ProfileModalContent() {
+function ProfileModalContent({ profile, handleChange }) {
   return (
     <Container>
       <Box>
         <Title>몸무게</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="weight"
+            value={profile.weight}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>키</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="height"
+            value={profile.height}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>mbti</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="mbti"
+            value={profile.mbti}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>취미</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="hobby"
+            value={profile.hobby}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>군필여부</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="military"
+            value={profile.military}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>종교</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="religion"
+            value={profile.religion}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>재산</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="wealth"
+            value={profile.wealth}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>결혼여부</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="marriage"
+            value={profile.marriage}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
       <Box>
         <Title>질병여부</Title>
         <Content>
-          <Writing type="text" />
+          <Writing
+            type="text"
+            name="disease"
+            value={profile.disease}
+            onChange={handleChange}
+          />
         </Content>
       </Box>
     </Container>

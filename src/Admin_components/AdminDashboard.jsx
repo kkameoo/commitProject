@@ -15,18 +15,37 @@ const ContentArea = styled.div`
 `;
 
 const mockUsers = [
-  { id: 1, name: "김철수", age: 25, gender: "남", job: "회사원", marriageStatus: "초혼", hobby: ["운동", "독서"], profileImg: "" },
-  { id: 2, name: "이영희", age: 29, gender: "여", job: "학생", marriageStatus: "초혼", hobby: ["바이크"], profileImg: "" },
+  {
+    id: 1,
+    name: "김철수",
+    age: 25,
+    gender: "남",
+    job: "회사원",
+    marriageStatus: "초혼",
+    hobby: ["운동", "독서"],
+    profileImg: "",
+  },
+  {
+    id: 2,
+    name: "이영희",
+    age: 29,
+    gender: "여",
+    job: "학생",
+    marriageStatus: "초혼",
+    hobby: ["바이크"],
+    profileImg: "",
+  },
 ];
 
 function AdminDashboard() {
   const [selectedFilters, setSelectedFilters] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
-
+  const [infoState, setInfoState] = useState("user");
   // ✅ 필터링된 회원 목록 (추천 회원)
   const filteredUsers = mockUsers.filter((user) =>
-    Object.entries(selectedFilters).every(([category, values]) =>
-      values.length === 0 || values.includes(user[category])
+    Object.entries(selectedFilters).every(
+      ([category, values]) =>
+        values.length === 0 || values.includes(user[category])
     )
   );
 
@@ -36,8 +55,11 @@ function AdminDashboard() {
       <AdminUserList users={mockUsers} onSelectUser={setSelectedUser} />
       <ContentArea>
         {/* 필터 적용된 유저를 필터링된 회원 섹션에서만 사용 */}
-        <AdminFilter selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />
-        
+        <AdminFilter
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
+        />
+
         {/* 필터링된 회원 목록 */}
         <div>
           <h3>🔍 추천 회원</h3>
@@ -49,7 +71,14 @@ function AdminDashboard() {
         </div>
 
         {/* 선택된 회원 상세 정보 모달 */}
-        {selectedUser && <AdminUserModal user={selectedUser} onClose={() => setSelectedUser(null)} />}
+        {selectedUser && (
+          <AdminUserModal
+            user={selectedUser}
+            onClose={() => setSelectedUser(null)}
+            infoState={infoState}
+            setInfoState={setInfoState}
+          />
+        )}
       </ContentArea>
     </DashboardContainer>
   );

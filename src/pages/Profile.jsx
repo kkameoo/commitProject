@@ -12,8 +12,30 @@ function Profile() {
   const ControllModal = () => {
     open ? setOpen(false) : setOpen(true);
   };
+
+  const addProfile = (profile) => {
+    const newProfile = {
+      weight: profile.weight,
+      height: profile.height,
+      mbti: profile.mbti,
+      hobby: profile.hobby,
+      military: profile.military,
+      religion: profile.religion,
+      wealth: profile.wealth,
+      marriage: profile.marriage,
+      disease: profile.disease,
+    };
+    console.log(JSON.stringify(newProfile));
+  };
+
   if (open === true) {
-    content = <Modal ControllModal={ControllModal} concept={"profile"} />;
+    content = (
+      <Modal
+        ControllModal={ControllModal}
+        concept={"profile"}
+        addState={addProfile}
+      />
+    );
   } else if (open === false) {
     content = null;
   }

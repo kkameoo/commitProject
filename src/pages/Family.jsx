@@ -11,8 +11,25 @@ function Family() {
   const ControllModal = () => {
     open ? setOpen(false) : setOpen(true);
   };
+
+  const addFamily = (family) => {
+    const newFamily = {
+      mother: family.mother,
+      father: family.father,
+      child: family.child,
+      sibling: family.sibling,
+    };
+    console.log(JSON.stringify(newFamily));
+  };
+
   if (open === true) {
-    content = <Modal ControllModal={ControllModal} concept={"family"} />;
+    content = (
+      <Modal
+        ControllModal={ControllModal}
+        concept={"family"}
+        addState={addFamily}
+      />
+    );
   } else if (open === false) {
     content = null;
   }

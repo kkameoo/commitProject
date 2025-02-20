@@ -26,11 +26,11 @@ const Input = styled.input`
   }
 `;
 
-function InputField({ label, type, value, onChange }) {
+function InputField({ label, type, name, value, onChange }) {
   return (
     <Container>
       <Label>{label}</Label>
-      <Input type={type} value={value} onChange={onChange} />
+      <Input type={type} value={value} name={name} onChange={onChange} />
     </Container>
   );
 }

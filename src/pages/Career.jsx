@@ -11,8 +11,23 @@ function Career() {
   const ControllModal = () => {
     open ? setOpen(false) : setOpen(true);
   };
+
+  const addCareer = (career) => {
+    const newCareer = {
+      salary: career.salary,
+      job: career.job,
+    };
+    console.log(JSON.stringify(newCareer));
+  };
+
   if (open === true) {
-    content = <Modal ControllModal={ControllModal} concept={"career"} />;
+    content = (
+      <Modal
+        ControllModal={ControllModal}
+        concept={"career"}
+        addState={addCareer}
+      />
+    );
   } else if (open === false) {
     content = null;
   }
