@@ -1,21 +1,24 @@
 import styled from "styled-components";
+
+
 const Container = styled.div`
   width: 85rem;
-  border: solid 2px pink;
+  // border: solid 2px pink;
 `;
 const Box = styled.div`
   width: 85rem;
   height: 3rem;
-  border: solid 2px grey;
+  // border: solid 2px grey;
   display: flex;
+  border-bottom: 2px solid pink;
 `;
 const Title = styled.div`
-  border: solid 2px blue;
+  // border: solid 2px blue;
   width: 10rem;
   height: 100%;
 `;
 const Content = styled.div`
-  border: solid 2px green;
+  // border: solid 2px green;
   width: 75rem;
   height: 100%;
 `;

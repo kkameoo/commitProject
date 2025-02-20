@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterContainer = styled.div`
-  margin-top: 50px;
   width: 100%;
   height: 180px;
   background-color: #D99696; /* 헤더와 동일한 배경 */

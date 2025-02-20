@@ -6,7 +6,7 @@ import ApplyBar from "./ApplyBar";
 const Container = styled.div`
   width: 94.15rem;
   height: 40rem;
-  border: 2px solid black;
+  // border: 2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,13 +16,13 @@ const Container = styled.div`
 const Box = styled.div`
   width: 75rem;
   height: 35rem;
-  border: 2px solid green;
+  // border: 2px solid green;
 `;
 const BottomBox = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 4rem;
-  border: 2px solid lime;
+  // border: 2px solid lime;
   width: 75rem;
 `;
 

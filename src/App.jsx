@@ -12,6 +12,7 @@ import Degree from "./pages/Degree";
 import Career from "./pages/Career";
 import Profile from "./pages/Profile";
 import Family from "./pages/Family";
+import Company from "./pages/Company"; 
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path="/Career" element={<Career />} />
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Family" element={<Family />} />
+      <Route path="/Company" element={<Company />} />
     </Routes>
   );
 }
