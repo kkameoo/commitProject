@@ -4,18 +4,17 @@ import Logo from "../images/Logo.png"; // 로컬 이미지 import
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 10rem;
+  height: 10rem; /* ✅ 기존 크기 유지 (160px) */
   margin: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #f2f2f2; /* 메인 컬러 */
-  border-bottom: 3px solid #d99696; /* 포인트 컬러 */
+  background-color: #f2f2f2; /* ✅ 항상 같은 배경 색 유지 */
+  border-bottom: 3px solid #d99696; /* ✅ 기존 테두리 유지 */
 `;
 
 const LogoButton = styled.button`
-  width: 10rem; /* 버튼 크기 조정 (필요하면 조절 가능) */
-  height: 100%; /* 헤더 높이에 딱 맞게 */
+  width: 10rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -23,25 +22,25 @@ const LogoButton = styled.button`
 `;
 
 const LogoImage = styled.img`
-  width: 100%; /* 버튼 크기에 꽉 차게 */
-  height: 100%; /* 버튼 높이에 맞게 */
-  object-fit: contain; /* 이미지 비율 유지하면서 꽉 차게 */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 `;
 
 const MenuButton = styled.button`
-  flex: 1; /* 버튼이 부모 컨테이너 안에서 균등 분배되도록 설정 */
-  height: 100%; /* 헤더 높이에 100% 맞추기 */
-  font-size: 1.2rem; /* 폰트 크기 살짝 키우기 */
+  flex: 1;
+  height: 100%;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #d99696; /* 기본 폰트 색상 */
-  background-color: transparent; /* 기본 배경 없음 */
-  border: none; /* 테두리 없애기 */
+  color: #d99696; /* ✅ 기본 색상 유지 */
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #f28888; /* hover 시 배경 변경 */
-    color: #f2f2f2; /* hover 시 폰트 색 변경 */
+    background-color: #f28888;
+    color: white;
   }
 `;
 
@@ -52,7 +51,7 @@ function Header() {
       <LogoButton onClick={() => navigate("/")}>
         <LogoImage src={Logo} alt="Commit Logo" />
       </LogoButton>
-      <MenuButton>commit 소개</MenuButton>
+      <MenuButton onClick={() => navigate("/Company")}>commit 소개</MenuButton>
       <MenuButton>고객서비스</MenuButton>
       <MenuButton>회원테스트</MenuButton>
       <MenuButton onClick={() => navigate("/Reviews")}>회원리뷰</MenuButton>
