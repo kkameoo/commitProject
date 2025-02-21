@@ -38,7 +38,6 @@ function SignUp() {
         throw new Error("데이터를 추가하지 못했습니다.");
       }
       console.log(JSON.stringify(signUpInfo));
-      5;
     } catch (Error) {
       console.log(Error);
     }

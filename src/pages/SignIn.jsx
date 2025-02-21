@@ -7,13 +7,34 @@ function SignIn() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
-  const sendLoginInfo = () => {
+  const apiUrl = "http://localhost:8927";
+
+  const sendLoginInfo = async () => {
     const loginInfo = {
-      userId: userId,
+      email: userId,
       password: password,
     };
-    console.log(JSON.stringify(loginInfo));
+    try {
+      const response = await fetch(
+        apiUrl + "/api/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(loginInfo),
+        },
+        { withCredentials: true }
+      );
+      if (!response.ok) {
+        throw new Error("데이터를 추가하지 못했습니다.");
+      }
+      console.log(JSON.stringify(loginInfo));
+    } catch (Error) {
+      console.log(Error);
+    }
   };
+
   return (
     <>
       <Header />
