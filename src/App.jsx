@@ -12,11 +12,31 @@ import Degree from "./pages/Degree";
 import Career from "./pages/Career";
 import Profile from "./pages/Profile";
 import Family from "./pages/Family";
-import Company from "./pages/Company"; 
+import Company from "./pages/Company";
 
-import Test from "./pages/Test"; 
+import Test from "./pages/Test";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:8927/api/user/session", {
+      // 요청 경로 수정
+      withCredentials: true, // 쿠키 전달
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        } else {
+          return null;
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        setUser(data);
+      });
+  }, []);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
