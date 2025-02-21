@@ -9,7 +9,7 @@ const Box = styled.div`
   // border-radius: 10px;
   overflow: hidden;
   // border: 2px solid #d4d4d4;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
   // border-radius: 0 0 10px 10px;
 `;
 const Title = styled.div`
@@ -19,11 +19,12 @@ const Title = styled.div`
   height: 3rem;
 
   align-items: center;
-  // background-color: #e7a7a7;
+  background-color: #e7a7a7;
   border-radius: 10px 10px 0 0;
   padding: 0 1rem;
   font-weight: bold;
   border-bottom: 2px solid#e7a7a7;
+  
 `;
 
 const TitleText = styled.div`

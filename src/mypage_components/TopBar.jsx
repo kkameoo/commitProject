@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import DegreeIcon from "../images/degree.png";
+import CareerIcon from "../images/career.png";
+import ProfileIcon from "../images/profile.png";
+import FamilyIcon from "../images/family.png";
 
 // 상단 전체 박스
 const TopBox = styled.div`
@@ -91,17 +95,30 @@ const InnerSecondBox = styled.div`
 // 버튼~
 const SignButton = styled.button`
   width: 8rem;
-  height: 4rem;
+  height: 6rem;
   border: none;
-  background-color:rgb(255, 230, 230);
+  // background-color:rgb(255, 230, 230);
+  background-color:rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
+  display: flex;
+  flex-direction: column; /* 📌 이미지 + 폰트 세로 정렬 */
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* 📌 이미지와 폰트 사이 간격 */
 
   &:hover {
     background-color:rgb(255, 187, 187);
   }
+  
+`;
+
+const SignButtonImage = styled.img`
+  width: 30px; /* 📌 이미지 크기 */
+  height: 30px;
+  margin-bottom: 8px;
 `;
 
 
@@ -122,6 +139,7 @@ function TopBar() {
             navigate("/Degree");
           }}
         >
+          <SignButtonImage src={DegreeIcon} alt="학위" />
           학위/자격정보
         </SignButton>
         <SignButton
@@ -129,6 +147,7 @@ function TopBar() {
             navigate("/Career");
           }}
         >
+          <SignButtonImage src={CareerIcon} alt="직장" />
           직장정보
         </SignButton>
         <SignButton
@@ -136,6 +155,7 @@ function TopBar() {
             navigate("/Profile");
           }}
         >
+          <SignButtonImage src={ProfileIcon} alt="신상" />
           신상정보
         </SignButton>
         <SignButton
@@ -143,6 +163,7 @@ function TopBar() {
             navigate("/Family");
           }}
         >
+          <SignButtonImage src={FamilyIcon} alt="가족" />
           가족사항
         </SignButton>
       </InnerSecondBox>

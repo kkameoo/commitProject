@@ -14,6 +14,8 @@ import Profile from "./pages/Profile";
 import Family from "./pages/Family";
 import Company from "./pages/Company"; 
 
+import Test from "./pages/Test"; 
+
 function App() {
   return (
     <Routes>
@@ -29,6 +31,7 @@ function App() {
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Family" element={<Family />} />
       <Route path="/Company" element={<Company />} />
+      <Route path="/Test" element={<Test />} />
     </Routes>
   );
 }

@@ -8,7 +8,7 @@ const Box = styled.div`
   // border-radius: 10px;
   overflow: hidden;
   // border: 2px solid #d4d4d4;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
   // border-radius: 0 0 10px 10px;
 `;
 const Title = styled.div`

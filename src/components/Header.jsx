@@ -28,6 +28,13 @@ const LogoImage = styled.img`
 `;
 
 const MenuButton = styled.button`
+@font-face {
+    font-family: 'Jal_Onuel';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Jal_Onuel.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
   flex: 1;
   height: 100%;
   font-size: 1.2rem;
@@ -38,6 +45,8 @@ const MenuButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
+  font-family: 'Jal_Onuel';
+
   &:hover {
     background-color: #f28888;
     color: white;
@@ -46,6 +55,7 @@ const MenuButton = styled.button`
 
 function Header() {
   const navigate = useNavigate();
+
   return (
     <HeaderContainer>
       <LogoButton onClick={() => navigate("/")}>
@@ -53,7 +63,7 @@ function Header() {
       </LogoButton>
       <MenuButton onClick={() => navigate("/Company")}>commit 소개</MenuButton>
       <MenuButton>고객서비스</MenuButton>
-      <MenuButton>회원테스트</MenuButton>
+      <MenuButton onClick={() => navigate("/Test")}>회원테스트</MenuButton>
       <MenuButton onClick={() => navigate("/Reviews")}>회원리뷰</MenuButton>
       <MenuButton onClick={() => navigate("/MyPage")}>마이페이지</MenuButton>
       <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton>
