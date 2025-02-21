@@ -16,6 +16,8 @@ import Company from "./pages/Company";
 
 import Test from "./pages/Test"; 
 
+import ReviewContent from "./review_components/ReviewContent"; // 추가
+
 function App() {
   return (
     <Routes>
@@ -24,6 +26,8 @@ function App() {
       <Route path="/SignIn" element={<SignIn />} />
       <Route path="/Review" element={<Review />} />
       <Route path="/Reviews" element={<Reviews />} />
+      <Route path="/review/:id" element={<ReviewContent />} /> {/* 상세 리뷰 페이지 */}
+
       <Route path="/MyPage" element={<MyPage />} />
       <Route path="/Admin" element={<Admin />} />
       <Route path="/Degree" element={<Degree />} />

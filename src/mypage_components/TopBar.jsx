@@ -114,6 +114,7 @@ const SignButton = styled.button`
 
   &:hover {
     background-color: rgb(255, 187, 187);
+    // background-color: rgb(242, 242, 242);
   }
 `;
 
