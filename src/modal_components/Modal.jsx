@@ -12,11 +12,13 @@ const Container = styled.div`
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Box = styled.div`
   background-color: white;
-  border: 2px solid black;
+  // border: 2px solid black;
   position: fixed;
   width: 40rem;
   height: 40rem;
@@ -24,21 +26,44 @@ const Box = styled.div`
   margin-top: -20rem;
   left: 50%;
   margin-left: -20rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: auto;
 `;
+
 const TopBar = styled.div`
-  border: 2px solid black;
+  // border: 2px solid black;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 30px;
 `;
 const Button = styled.button`
   margin: 0.3rem;
   font-weight: 600;
+  margin-right: 40px;
+  margin-top: 50px;
+
+  // padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #ffffff;
+
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #ddd;
+  }
 `;
+
 const Bottom = styled.div`
   width: 100%;
-  border: 2px solid black;
+  // border: 2px solid black;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+  margin-top: 1rem;
 `;
 
 function Modal({ ControllModal, concept, addState }) {
