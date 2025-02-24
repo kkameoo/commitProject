@@ -53,8 +53,17 @@ const MenuButton = styled.button`
   }
 `;
 
-function Header() {
+function Header({userSession,deleteSession}) {
   const navigate = useNavigate();
+
+  let content = null;
+
+  if(userSession === null) {(
+    content =  <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton>
+  )
+  } else {
+    content = <MenuButton onClick={() => deleteSession()}>로그아웃</MenuButton>
+  }
 
   return (
     <HeaderContainer>
@@ -66,7 +75,8 @@ function Header() {
       <MenuButton onClick={() => navigate("/Test")}>회원테스트</MenuButton>
       <MenuButton onClick={() => navigate("/Reviews")}>회원리뷰</MenuButton>
       <MenuButton onClick={() => navigate("/MyPage")}>마이페이지</MenuButton>
-      <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton>
+      {/* <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton> */}
+      {content}
       <MenuButton onClick={() => navigate("/SignUp")}>회원가입</MenuButton>
     </HeaderContainer>
   );

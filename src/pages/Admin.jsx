@@ -5,7 +5,7 @@ import AdminDashboard from "../Admin_components/AdminDashboard";
 function Admin() {
   return (
     <>
-      <Header />
+      
       <AdminDashboard />
       <Footer />
     </>

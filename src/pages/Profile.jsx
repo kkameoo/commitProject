@@ -41,7 +41,7 @@ function Profile() {
   }
   return (
     <>
-      <Header />
+      
       <ProfileContent ControllModal={ControllModal} />
       {content}
       <Footer />

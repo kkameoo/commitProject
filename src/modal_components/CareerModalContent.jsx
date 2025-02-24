@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import InputField from "./InputField";
 
 const Container = styled.div`
   width: 80%;
@@ -46,28 +47,18 @@ const Writing = styled.input`
 function CareerModalContent({ career, handleChange }) {
   return (
     <Container>
-      <Box>
-        <Title>직업</Title>
-        <Content>
-          <Writing
+      <InputField 
+            title="직업"
             type="text"
             name="job"
             value={career.job}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
-      <Box>
-        <Title>연봉</Title>
-        <Content>
-          <Writing
+            onChange={handleChange} />
+      <InputField
+            title="연봉" 
             type="text"
             name="salary"
             value={career.salary}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
+            onChange={handleChange} />
     </Container>
   );
 }

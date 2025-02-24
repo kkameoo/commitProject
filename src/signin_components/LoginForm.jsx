@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import InputField from "./InputField";
 import AuthButton from "./AuthButton";
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +38,10 @@ function LoginForm({
   password,
   setPassword,
   sendLoginInfo,
+ 
 }) {
+
+  
   return (
     <Container>
       <FormWrapper>
@@ -55,7 +59,8 @@ function LoginForm({
           onChange={(e) => setPassword(e.target.value)}
         />
         <ButtonGroup>
-          <AuthButton sendLoginInfo={sendLoginInfo} text="로그인" primary />
+          <AuthButton sendLoginInfo={sendLoginInfo}
+          text="로그인" primary />
         </ButtonGroup>
       </FormWrapper>
     </Container>

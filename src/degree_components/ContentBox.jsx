@@ -43,36 +43,36 @@ const Content = styled.div`
   color: grey;
 `;
 
-function ContentBox() {
+function ContentBox({degree}) {
   return (
     <Container>
       <Box>
         <Title>중학교</Title>
-        <Content>입력해주세요</Content>
+        <Content>{degree.middleSchool}</Content>
       </Box>
       <Box>
         <Title>고등학교</Title>
-        <Content>입력해주세요</Content>
+        <Content>{degree.highSchool}</Content>
       </Box>
       <Box>
         <Title>고등학교 전공</Title>
-        <Content>입력해주세요</Content>
+        <Content>{degree.highMajor}</Content>
       </Box>
       <Box>
         <Title>대학교</Title>
-        <Content>입력해주세요</Content>
+        <Content>{degree.university}</Content>
       </Box>
       <Box>
         <Title>대학교 전공</Title>
-        <Content>입력해주세요</Content>
+        <Content>{degree.universityMajor}</Content>
       </Box>
       <Box>
         <Title>대학원</Title>
-        <Content>입력해주세요</Content>
+        <Content>{degree.graduateSchool}</Content>
       </Box>
       <Box>
         <Title>대학원 전공</Title>
-        <Content>입력해주세요</Content>
+        <Content>{degree.graduateMajor}</Content>
       </Box>
     </Container>
   );

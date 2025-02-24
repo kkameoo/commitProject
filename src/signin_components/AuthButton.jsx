@@ -1,4 +1,4 @@
-function AuthButton({ text, primary, sendLoginInfo }) {
+function AuthButton({ text, primary, sendLoginInfo  }) {
   return (
     <button
       className={primary ? "btn primary" : "btn"}

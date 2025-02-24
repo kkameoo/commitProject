@@ -2,6 +2,10 @@ import Header from "../components/header";
 import SignUpForm from "../signup_components/SignUpForm";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import { useContext } from "react";
+import { useAuth } from "../App";
+
+
 
 function SignUp() {
   const [signUpInfo, setSignUpInfo] = useState({
@@ -43,9 +47,11 @@ function SignUp() {
     }
   };
 
+  
+
   return (
     <>
-      <Header />
+      
       <SignUpForm
         signUpInfo={signUpInfo}
         handleChange={handleChange}

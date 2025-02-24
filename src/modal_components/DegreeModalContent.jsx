@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import InputField from "./InputField";
 
 const Container = styled.div`
   width: 80%;
@@ -38,83 +39,48 @@ const Writing = styled.input`
 function DegreeModalContent({ degree, handleChange }) {
   return (
     <Container>
-      <Box>
-        <Title>중학교</Title>
-        <Content>
-          <Writing
+      <InputField 
+            title="중학교"
             type="text"
             name="middleSchool"
             value={degree.middleSchool}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
-      <Box>
-        <Title>고등학교</Title>
-        <Content>
-          <Writing
+            onChange={handleChange} />
+      <InputField 
+            title="고등학교"
             type="text"
             name="highSchool"
             value={degree.highSchool}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
-      <Box>
-        <Title>고등학교 전공</Title>
-        <Content>
-          <Writing
+            onChange={handleChange} />
+      <InputField 
+            title="고등학교 전공"
             type="text"
-            name="highSchoolMajor"
-            value={degree.highSchoolMajor}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
-      <Box>
-        <Title>대학교</Title>
-        <Content>
-          <Writing
+            name="highMajor"
+            value={degree.highMajor}
+            onChange={handleChange} />
+      <InputField 
+            title="대학교"
             type="text"
             name="university"
             value={degree.university}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
-      <Box>
-        <Title>대학교 전공</Title>
-        <Content>
-          <Writing
+            onChange={handleChange} />
+      <InputField 
+            title="대학교 전공"
             type="text"
             name="universityMajor"
             value={degree.universityMajor}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
-      <Box>
-        <Title>대학원</Title>
-        <Content>
-          <Writing
+            onChange={handleChange} />
+      <InputField 
+            title="대학원"
             type="text"
-            name="graduate"
-            value={degree.graduate}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
-      <Box>
-        <Title>대학원 전공</Title>
-        <Content>
-          <Writing
+            name="graduateSchool"
+            value={degree.graduateSchool}
+            onChange={handleChange} />
+      <InputField 
+            title="대학원 전공"
             type="text"
             name="graduateMajor"
             value={degree.graduateMajor}
-            onChange={handleChange}
-          />
-        </Content>
-      </Box>
+            onChange={handleChange} />
     </Container>
   );
 }

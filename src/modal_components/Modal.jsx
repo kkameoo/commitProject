@@ -4,6 +4,8 @@ import CareerModalContent from "./CareerModalContent";
 import ProfileModalContent from "./ProfileModalContent";
 import FamilyModalContent from "./FamilyModalContent";
 import { useState } from "react";
+import { useAuth } from "../App";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   position: fixed;
@@ -66,16 +68,10 @@ const Bottom = styled.div`
   margin-top: 1rem;
 `;
 
-function Modal({ ControllModal, concept, addState }) {
-  const [degree, setDegree] = useState({
-    middleSchool: "",
-    highSchool: "",
-    highSchoolMajor: "",
-    university: "",
-    universityMajor: "",
-    graduate: "",
-    graduateMajor: "",
-  });
+function Modal({ ControllModal, concept, addState, degreeInfo, addDegreeInfo }) {
+  const [degree, setDegree] = useState(degreeInfo);
+  const {userSession} = useAuth();
+  
 
   const [career, setCareer] = useState({
     salary: "",
@@ -138,7 +134,28 @@ function Modal({ ControllModal, concept, addState }) {
   };
 
   let content = null;
-  if (concept === "degree") {
+  if ((concept === "degree") &&(degree.id === ""))  {
+    // if(degree.id === "") {
+      const data = {
+        "middleSchool": degree.middleSchool,
+        "highSchool": degree.highSchool,
+        "highMajor": degree.highSchoolMajor,
+        "university": degree.university,
+        "universityMajor": degree.universityMajor,
+        "graduateSchool": degree.graduate,
+       "graduateMajor": degree.graduateMajor,
+       "userId": userSession.id,
+      }
+
+      content = (
+        <>
+          <DegreeModalContent degree={degree} handleChange={degreeHandleChange} />
+          <Bottom>
+            <Button onClick={() => addDegreeInfo(data)}>제출하기</Button>
+          </Bottom>
+        </>
+      )
+    } else if ((concept === "degree") &&(degree.id =! "")) {
     content = (
       <>
         <DegreeModalContent degree={degree} handleChange={degreeHandleChange} />
@@ -147,6 +164,7 @@ function Modal({ ControllModal, concept, addState }) {
         </Bottom>
       </>
     );
+  
   } else if (concept === "career") {
     content = (
       <>

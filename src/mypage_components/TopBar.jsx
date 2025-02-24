@@ -5,6 +5,7 @@ import DegreeIcon from "../images/degree.png";
 import CareerIcon from "../images/career.png";
 import ProfileIcon from "../images/profile.png";
 import FamilyIcon from "../images/family.png";
+import { useAuth } from "../App";
 
 // 상단 전체 박스
 const TopBox = styled.div`
@@ -124,9 +125,10 @@ const SignButtonImage = styled.img`
   margin-bottom: 8px;
 `;
 
-function TopBar() {
+function TopBar({getDegree, degree}) {
   const apiUrl = "http://localhost:8927";
   const [file, setFile] = useState(null);
+  const {userSession} = useAuth();
 
   const uploadPhoto = async () => {
     const formData = new FormData();
@@ -166,8 +168,8 @@ function TopBar() {
   return (
     <TopBox>
       <InnerBox>
-        <Name>ㅁㅁㅁ님 안녕하세요</Name>
-        <Grade>회원유형: ㅁㅁㅁ</Grade>
+        <Name>{userSession.name}님 안녕하세요</Name>
+        <Grade>회원유형: {userSession.member}</Grade>
         <form onSubmit={handleSubmit}>
           <Photo>
             <PhotoButton type="file" onChange={handleFileChange} />
@@ -178,7 +180,7 @@ function TopBar() {
       <InnerSecondBox>
         <SignButton
           onClick={() => {
-            navigate("/Degree");
+            getDegree();
           }}
         >
           <SignButtonImage src={DegreeIcon} alt="학위" />

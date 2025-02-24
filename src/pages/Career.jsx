@@ -33,7 +33,7 @@ function Career() {
   }
   return (
     <>
-      <Header />
+      
       <CareerContent ControllModal={ControllModal} />
       {content}
       <Footer />

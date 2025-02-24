@@ -5,7 +5,7 @@ import MainPage from "../main_components/MainPage";
 function Home() {
   return (
     <>
-      <Header />
+      
       <MainPage />
       <Footer />
     </>

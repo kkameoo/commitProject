@@ -9,7 +9,7 @@ function Review() {
 
   return (
     <>
-      <Header />
+      
       <ReviewContents user={user} />
 
       <Footer />

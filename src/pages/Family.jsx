@@ -35,7 +35,7 @@ function Family() {
   }
   return (
     <>
-      <Header />
+     
       <FamilyContent ControllModal={ControllModal} />
       {content}
       <Footer />

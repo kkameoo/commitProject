@@ -8,7 +8,7 @@ function Company() {
 
   return (
     <>
-      <Header transparent={transparentHeader} />
+      
       <FullPageScroll setTransparentHeader={setTransparentHeader} />
       <Footer />
     </>

@@ -30,7 +30,7 @@ function Reviews() {
 
   return (
     <>
-      <Header />
+      
       <ReviewsContent reviews={reviews} />
       <Footer />
     </>

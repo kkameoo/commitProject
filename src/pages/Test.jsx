@@ -4,7 +4,7 @@ import TestPages from "../test_components/TestPages";
 function Test() {
   return (
     <>
-      <Header />
+      
       <TestPages />  
       <Footer />
     </>

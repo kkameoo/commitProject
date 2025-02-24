@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ReviewBar from "./Reviewbar";
 import TopBar from "./Topbar";
 import ApplyBar from "./ApplyBar";
+import { useAuth } from "../App";
 
 const Container = styled.div`
   width: 94.15rem;
@@ -26,11 +27,12 @@ const BottomBox = styled.div`
   width: 75rem;
 `;
 
-function MyPageContent() {
+function MyPageContent({getDegree, degree}) {
+  
   return (
     <Container>
       <Box>
-        <TopBar />
+        <TopBar getDegree={getDegree} degree={degree}/>
         <BottomBox>
           <ReviewBar />
           <ApplyBar />
