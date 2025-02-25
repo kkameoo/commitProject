@@ -31,10 +31,17 @@ function AdminUserList({ users, onSelectUser }) {
     <UserListContainer>
       {users.map((user) => (
         <UserCard key={user.id} onClick={() => onSelectUser(user)}>
-          <Avatar src={user.profileImg || "https://via.placeholder.com/40"} alt="Profile" />
+          <Avatar
+            src={user.profileImg || "https://via.placeholder.com/40"}
+            alt="Profile"
+          />
           <div>
-            <div><strong>{user.name}</strong></div>
-            <div>{user.age}세 / {user.gender}</div>
+            <div>
+              <strong>{user.name}</strong>
+            </div>
+            <div>
+              생년월일 : {user.birth} / {user.gender}
+            </div>
           </div>
         </UserCard>
       ))}

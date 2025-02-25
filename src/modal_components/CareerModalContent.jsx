@@ -29,9 +29,6 @@ const Content = styled.div`
   // height: 100%;
 `;
 
-
-
-
 const Writing = styled.input`
   width: 100%;
   border: none;
@@ -42,23 +39,23 @@ const Writing = styled.input`
   color: #555;
 `;
 
-
-
 function CareerModalContent({ career, handleChange }) {
   return (
     <Container>
-      <InputField 
-            title="직업"
-            type="text"
-            name="job"
-            value={career.job}
-            onChange={handleChange} />
       <InputField
-            title="연봉" 
-            type="text"
-            name="salary"
-            value={career.salary}
-            onChange={handleChange} />
+        title="직업"
+        type="text"
+        name="job"
+        value={career.job}
+        onChange={handleChange}
+      />
+      <InputField
+        title="연봉"
+        type="text"
+        name="salary"
+        value={career.salary}
+        onChange={handleChange}
+      />
     </Container>
   );
 }

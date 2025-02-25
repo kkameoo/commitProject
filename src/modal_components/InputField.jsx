@@ -30,24 +30,16 @@ const Writing = styled.input`
   color: #555;
 `;
 
-
-function InputField({title, type, name, value, onChange}) {
-
-return (
+function InputField({ title, type, name, value, onChange }) {
+  return (
     <>
-    <Box>
+      <Box>
         <Title>{title}</Title>
         <Content>
-          <Writing
-            type={type}
-            name={name}
-            value={value}
-            onChange={onChange}
-          />
+          <Writing type={type} name={name} value={value} onChange={onChange} />
         </Content>
       </Box>
-      </>
-)
-
+    </>
+  );
 }
-export default InputField
+export default InputField;

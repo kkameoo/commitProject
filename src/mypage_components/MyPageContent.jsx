@@ -27,12 +27,16 @@ const BottomBox = styled.div`
   width: 75rem;
 `;
 
-function MyPageContent({getDegree, degree}) {
-  
+function MyPageContent({ getDegree, getCareer, getProfile, getFamily }) {
   return (
     <Container>
       <Box>
-        <TopBar getDegree={getDegree} degree={degree}/>
+        <TopBar
+          getDegree={getDegree}
+          getCareer={getCareer}
+          getProfile={getProfile}
+          getFamily={getFamily}
+        />
         <BottomBox>
           <ReviewBar />
           <ApplyBar />

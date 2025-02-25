@@ -125,10 +125,10 @@ const SignButtonImage = styled.img`
   margin-bottom: 8px;
 `;
 
-function TopBar({getDegree, degree}) {
+function TopBar({ getDegree, getCareer, getProfile, getFamily }) {
   const apiUrl = "http://localhost:8927";
   const [file, setFile] = useState(null);
-  const {userSession} = useAuth();
+  const { userSession } = useAuth();
 
   const uploadPhoto = async () => {
     const formData = new FormData();
@@ -188,7 +188,7 @@ function TopBar({getDegree, degree}) {
         </SignButton>
         <SignButton
           onClick={() => {
-            navigate("/Career");
+            getCareer();
           }}
         >
           <SignButtonImage src={CareerIcon} alt="직장" />
@@ -196,7 +196,7 @@ function TopBar({getDegree, degree}) {
         </SignButton>
         <SignButton
           onClick={() => {
-            navigate("/Profile");
+            getProfile();
           }}
         >
           <SignButtonImage src={ProfileIcon} alt="신상" />
@@ -204,7 +204,7 @@ function TopBar({getDegree, degree}) {
         </SignButton>
         <SignButton
           onClick={() => {
-            navigate("/Family");
+            getFamily();
           }}
         >
           <SignButtonImage src={FamilyIcon} alt="가족" />

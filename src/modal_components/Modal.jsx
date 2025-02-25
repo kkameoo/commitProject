@@ -4,8 +4,6 @@ import CareerModalContent from "./CareerModalContent";
 import ProfileModalContent from "./ProfileModalContent";
 import FamilyModalContent from "./FamilyModalContent";
 import { useState } from "react";
-import { useAuth } from "../App";
-import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   position: fixed;
@@ -68,15 +66,25 @@ const Bottom = styled.div`
   margin-top: 1rem;
 `;
 
-function Modal({ ControllModal, concept, addState, degreeInfo, addDegreeInfo }) {
+function Modal({
+  ControllModal,
+  concept,
+  // degree 정보, 수정, 추가
+  degreeInfo,
+  modifyDegree,
+  addDegreeInfo,
+  // career 정보, 수정, 추가
+  careerInfo,
+  modifyCareer,
+  addCareer,
+  // family 정보, 수정 ,추가
+  familyInfo,
+  modifyFamily,
+  addFamilyInfo,
+}) {
   const [degree, setDegree] = useState(degreeInfo);
-  const {userSession} = useAuth();
-  
 
-  const [career, setCareer] = useState({
-    salary: "",
-    job: "",
-  });
+  const [career, setCareer] = useState(careerInfo);
 
   const [profile, setProfile] = useState({
     weight: "",
@@ -90,12 +98,7 @@ function Modal({ ControllModal, concept, addState, degreeInfo, addDegreeInfo }) 
     disease: "",
   });
 
-  const [family, setFamily] = useState({
-    mother: "",
-    father: "",
-    child: "",
-    sibling: "",
-  });
+  const [family, setFamily] = useState(familyInfo);
 
   const degreeHandleChange = (e) => {
     const { name, value } = e.target;
@@ -134,43 +137,41 @@ function Modal({ ControllModal, concept, addState, degreeInfo, addDegreeInfo }) 
   };
 
   let content = null;
-  if ((concept === "degree") &&(degree.id === ""))  {
+  if (concept === "degree" && degree.id === "") {
     // if(degree.id === "") {
-      const data = {
-        "middleSchool": degree.middleSchool,
-        "highSchool": degree.highSchool,
-        "highMajor": degree.highSchoolMajor,
-        "university": degree.university,
-        "universityMajor": degree.universityMajor,
-        "graduateSchool": degree.graduate,
-       "graduateMajor": degree.graduateMajor,
-       "userId": userSession.id,
-      }
 
-      content = (
-        <>
-          <DegreeModalContent degree={degree} handleChange={degreeHandleChange} />
-          <Bottom>
-            <Button onClick={() => addDegreeInfo(data)}>제출하기</Button>
-          </Bottom>
-        </>
-      )
-    } else if ((concept === "degree") &&(degree.id =! "")) {
     content = (
       <>
         <DegreeModalContent degree={degree} handleChange={degreeHandleChange} />
         <Bottom>
-          <Button onClick={() => addState(degree)}>제출하기</Button>
+          <Button onClick={() => addDegreeInfo(degree)}>제출하기</Button>
         </Bottom>
       </>
     );
-  
-  } else if (concept === "career") {
+  } else if (concept === "degree" && (degree.id = !"")) {
+    content = (
+      <>
+        <DegreeModalContent degree={degree} handleChange={degreeHandleChange} />
+        <Bottom>
+          <Button onClick={() => modifyDegree(degree)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
+  } else if (concept === "career" && career.id === "") {
     content = (
       <>
         <CareerModalContent career={career} handleChange={careerHandleChange} />
         <Bottom>
-          <Button onClick={() => addState(career)}>제출하기</Button>
+          <Button onClick={() => addCareer(career)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
+  } else if (concept === "career" && (career.id = !"")) {
+    content = (
+      <>
+        <CareerModalContent career={career} handleChange={careerHandleChange} />
+        <Bottom>
+          <Button onClick={() => modifyCareer(career)}>제출하기</Button>
         </Bottom>
       </>
     );
@@ -186,12 +187,21 @@ function Modal({ ControllModal, concept, addState, degreeInfo, addDegreeInfo }) 
         </Bottom>
       </>
     );
-  } else if (concept === "family") {
+  } else if (concept === "family" && family.id === "") {
     content = (
       <>
         <FamilyModalContent family={family} handleChange={familyHandleChange} />
         <Bottom>
-          <Button onClick={() => addState(family)}>제출하기</Button>
+          <Button onClick={() => addFamilyInfo(family)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
+  } else if (concept === "family" && (family.id = !"")) {
+    content = (
+      <>
+        <FamilyModalContent family={family} handleChange={familyHandleChange} />
+        <Bottom>
+          <Button onClick={() => modifyFamily(family)}>제출하기</Button>
         </Bottom>
       </>
     );

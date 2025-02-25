@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const Container = styled.div`
   width: 85rem;
   // border: solid 2px pink;
@@ -44,16 +43,16 @@ const Content = styled.div`
   color: grey;
 `;
 
-function ContentBox() {
+function ContentBox({ career }) {
   return (
     <Container>
       <Box>
         <Title>직업</Title>
-        <Content>입력해주세요</Content>
+        <Content>{career.job}</Content>
       </Box>
       <Box>
         <Title>연봉</Title>
-        <Content>입력해주세요</Content>
+        <Content>{career.salary}</Content>
       </Box>
     </Container>
   );

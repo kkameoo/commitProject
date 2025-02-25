@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import styled from "styled-components";
 
 const ModalOverlay = styled.div`
@@ -28,19 +28,16 @@ function AdminUserModal({ user, onClose, infoState, setInfoState }) {
     content = (
       <>
         <h3>{user.name} 상세 정보</h3>
-        <p>나이: {user.age}</p>
-        <p>성별: {user.gender}</p>
-        <p>직업: {user.job}</p>
-        <p>결혼 여부: {user.marriageStatus}</p>
-        <p>취미: {user.hobby.join(", ")}</p>
 
-        <p>등급: </p>
-        <p>이메일: </p>
-        <p>비밀번호: </p>
-        <p>성별: </p>
-        <p>생년월일: </p>
-        <p>주소: </p>
-        <p>전화번호: </p>
+        <p>id: {user.id}</p>
+        <p>이름: {user.name}</p>
+        <p>이메일: {user.email}</p>
+        <p>비밀번호: {user.password}</p>
+        <p>성별: {user.gender}</p>
+        <p>생년월일: {user.birth}</p>
+        <p>주소: {user.address}</p>
+        <p>등급: {user.member}</p>
+        <p>전화번호: {user.phoneNumber}</p>
       </>
     );
   } else if (infoState === "degree") {

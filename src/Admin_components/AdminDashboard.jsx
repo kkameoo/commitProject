@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import AdminFilter from "./AdminFilter";
 import AdminUserList from "./AdminUserList";
@@ -37,7 +37,7 @@ const mockUsers = [
   },
 ];
 
-function AdminDashboard() {
+function AdminDashboard({ users }) {
   const [selectedFilters, setSelectedFilters] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
   const [infoState, setInfoState] = useState("user");
@@ -52,7 +52,7 @@ function AdminDashboard() {
   return (
     <DashboardContainer>
       {/* 회원 목록은 필터에 영향을 받지 않음! */}
-      <AdminUserList users={mockUsers} onSelectUser={setSelectedUser} />
+      <AdminUserList users={users} onSelectUser={setSelectedUser} />
       <ContentArea>
         {/* 필터 적용된 유저를 필터링된 회원 섹션에서만 사용 */}
         <AdminFilter

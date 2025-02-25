@@ -1,9 +1,4 @@
 import styled from "styled-components";
-import ContentBox from "./ContentBox";
-
-import { useNavigate } from "react-router-dom";
-import TopBar from "../components/TopBar";
-import CareerButton from "./CareerButton";
 
 const Container = styled.div`
   width: 94.15rem;
@@ -72,19 +67,11 @@ const Button = styled.button`
   }
 `;
 
-function CareerContent({ ControllModal, career }) {
-  const navigate = useNavigate();
+function CareerButton({ text, onClick }) {
   return (
-    <>
-      <Container>
-        <TopBar title={"직업 정보"} />
-        <ContentBox career={career} />
-        <Box>
-          <CareerButton onClick={() => ControllModal()} text={"수정하기"} />
-          <CareerButton onClick={() => navigate("/MyPage")} text={"뒤로가기"} />
-        </Box>
-      </Container>
-    </>
+    <Button onClick={onClick}>
+      <span>{text}</span>
+    </Button>
   );
 }
-export default CareerContent;
+export default CareerButton;
