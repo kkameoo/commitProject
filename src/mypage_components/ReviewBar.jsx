@@ -39,15 +39,26 @@ const TitleText = styled.div`
 
 
 `;
-const TitleDetail = styled.div`
-  // border: 2px solid red;
-  height: 100%;
+// const TitleDetail = styled.div`
+//   // border: 2px solid red;
+//   height: 100%;
 
+//   display: flex;
+//   align-items: center; /* ✅ 수직 중앙 정렬 */
+//   // padding-top: 3px; /* ✅ 글자를 아래로 내림 */
+//   cursor: pointer;
+// `;
+
+
+const ButtonReview = styled.button`
+  border: none;
+  background-color: #e7a7a7;
   display: flex;
-  align-items: center; /* ✅ 수직 중앙 정렬 */
-  // padding-top: 3px; /* ✅ 글자를 아래로 내림 */
-  cursor: pointer;
-`;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15px;
+`
+
 const Content = styled.div`
   // border: 2px solid blue;
   width: 35rem;
@@ -95,7 +106,8 @@ function ReviewBar() {
     <Box>
       <Title>
         <TitleText>내 리뷰 현황</TitleText>
-        <TitleDetail>자세히보기</TitleDetail>
+        {/* <TitleDetail>자세히보기</TitleDetail> */}
+        <ButtonReview>새 리뷰 작성</ButtonReview>
       </Title>
       <Content>
       {reviews.length > 0 ? (
