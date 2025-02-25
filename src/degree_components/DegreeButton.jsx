@@ -46,6 +46,9 @@ const Button = styled.button`
   }
 `;
 
+
+
+
 function DegreeButton({text, onClick}) {
     return <Button onClick={onClick}><span>{text}</span></Button>
 

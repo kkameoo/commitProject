@@ -12,6 +12,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 `;
 
 const Box = styled.div`

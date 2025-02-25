@@ -6,10 +6,13 @@ import CareerIcon from "../images/career.png";
 import ProfileIcon from "../images/profile.png";
 import FamilyIcon from "../images/family.png";
 import { useAuth } from "../App";
+import PhotoUploadModal from "./PhotoUploadModal";
 
 // 상단 전체 박스
 const TopBox = styled.div`
-  height: 10rem;
+  // height: 10rem;
+  height: auto; /* 자동으로 높이 조절되도록 변경 */
+  min-height: 10rem; /* 기본 높이는 유지 */
   // border: 2px solid red;
   display: flex;
 
@@ -32,6 +35,7 @@ const InnerBox = styled.div`
   background-color: #fff;
   // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   // border-right: 2px solid #d4d4d4;
+  padding-bottom: 1rem;
 `;
 
 // 이름
@@ -59,25 +63,50 @@ const Grade = styled.div`
 `;
 
 // 사진
-const Photo = styled.div`
-  // border-botton: 2px solid black;
-  height: 4.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const PhotoButton = styled.input`
-  width: 13rem;
-  height: 2.5rem;
+// const Photo = styled.div`
+//   // border-botton: 2px solid black;
+//   height: 4.3rem;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
+// const PhotoButton = styled.input`
+//   width: 13rem;
+//   height: 2.5rem;
+
+//   border: none;
+//   // background-color: #d99696;
+//   background-color: #e7a7a7;
+//   color: white;
+//   cursor: pointer;
+//   border-radius: 5px;
+//   font-weight: bold;
+
+//   &:hover {
+//     background-color: #c06c6c;
+//   }
+// `;
+
+// 업로드한 사진 보기
+const ProfileImage = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 7px;
+`;
+
+// 업로드 버튼
+const UploadButton = styled.button`
+  width: 7rem;
+  height: 2.5rem;
   border: none;
-  // background-color: #d99696;
   background-color: #e7a7a7;
   color: white;
   cursor: pointer;
   border-radius: 5px;
   font-weight: bold;
-
   &:hover {
     background-color: #c06c6c;
   }
@@ -127,10 +156,12 @@ const SignButtonImage = styled.img`
 
 function TopBar({getDegree, degree}) {
   const apiUrl = "http://localhost:8927";
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
   const {userSession} = useAuth();
+  const [showModal, setShowModal] = useState(false);
+  const [profileImage, setProfileImage] = useState(null); // 이미지 상태 추가
 
-  const uploadPhoto = async () => {
+  const uploadPhoto = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
     try {
@@ -145,24 +176,29 @@ function TopBar({getDegree, degree}) {
       if (!response.ok) {
         throw new Error("데이터를 추가하지 못했습니다.");
       }
+
+      // ✅ 이미지 업로드 후 미리보기 업데이트
+      const imageUrl = URL.createObjectURL(file); // 서버 저장된 URL을 받아와야 하지만, 지금은 로컬 미리보기용
+      setProfileImage(imageUrl);
+
     } catch (Error) {
       console.log(Error);
     }
   };
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
+  // const handleFileChange = (e) => {
+  //   setFile(e.target.files[0]);
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (file) {
-      console.log("선택한 파일:", file);
-      uploadPhoto();
-    } else {
-      console.log("파일을 선택하세요.");
-    }
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (file) {
+  //     console.log("선택한 파일:", file);
+  //     uploadPhoto();
+  //   } else {
+  //     console.log("파일을 선택하세요.");
+  //   }
+  // };
 
   const navigate = useNavigate();
   return (
@@ -170,12 +206,17 @@ function TopBar({getDegree, degree}) {
       <InnerBox>
         <Name>{userSession.name}님 안녕하세요</Name>
         <Grade>회원유형: {userSession.member}</Grade>
-        <form onSubmit={handleSubmit}>
+
+        {/*  업로드한 이미지 미리보기 추가 */}
+        {profileImage && <ProfileImage src={profileImage} alt="프로필 사진" />}
+        
+        {/* <form onSubmit={handleSubmit}>
           <Photo>
             <PhotoButton type="file" onChange={handleFileChange} />
           </Photo>
           <button type="submit">업로드</button>
-        </form>
+        </form> */}
+        <UploadButton onClick={() => setShowModal(true)}>업로드</UploadButton>
       </InnerBox>
       <InnerSecondBox>
         <SignButton
@@ -211,6 +252,16 @@ function TopBar({getDegree, degree}) {
           가족사항
         </SignButton>
       </InnerSecondBox>
+
+
+      {/* 모달 추가 ✅ */}
+      {showModal && (
+        <PhotoUploadModal
+          closeModal={() => setShowModal(false)}
+          uploadPhoto={uploadPhoto}
+        />
+      )}
+      
     </TopBox>
   );
 }
