@@ -27,9 +27,10 @@ const Avatar = styled.img`
 `;
 
 function AdminUserList({ users, onSelectUser }) {
+  console.log(users);
   return (
     <UserListContainer>
-      {users.map((user) => (
+      {users?.map((user) => (
         <UserCard key={user.id} onClick={() => onSelectUser(user)}>
           <Avatar
             src={user.profileImg || "https://via.placeholder.com/40"}

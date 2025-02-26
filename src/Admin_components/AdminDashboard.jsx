@@ -41,6 +41,7 @@ function AdminDashboard({ users }) {
   const [selectedFilters, setSelectedFilters] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
   const [infoState, setInfoState] = useState("user");
+  const [userList, setUserList] = useState();
   // ✅ 필터링된 회원 목록 (추천 회원)
   const filteredUsers = mockUsers.filter((user) =>
     Object.entries(selectedFilters).every(
@@ -48,6 +49,7 @@ function AdminDashboard({ users }) {
         values.length === 0 || values.includes(user[category])
     )
   );
+  console.log(users);
 
   return (
     <DashboardContainer>
