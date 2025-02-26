@@ -118,16 +118,16 @@ function AdminDashboard({ users }) {
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
         />
-        <button onClick={() => toggle1()} />
+        {/* <button onClick={() => toggle1()} /> */}
 
         {/* 필터링된 회원 목록 */}
         <div>
           <h3>🔍 추천 회원</h3>
 
-          {filteredUsers.length > 0 ? (
+          {filteredUsers?.length > 0 ? (
             <UserBoxContainer>
               {filteredUsers.map((user) => (
-                <UserBox key={user.id}>
+                <UserBox key={user.id} onClick={() => setSelectedUser(user)}>
                   <UserProfileImg>
                     {user.profileImg ? (
                       <img

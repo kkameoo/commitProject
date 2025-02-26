@@ -19,7 +19,7 @@ const ModalContent = styled.div`
   padding: 20px;
   border-radius: 10px;
   width: 500px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   // display: flex;
   // flex-direction: column;
   // align-items: center;
@@ -45,7 +45,7 @@ const ButtonRow = styled.div`
   gap: 10px;
   margin-top: 14px;
   width: 100%;
-`
+`;
 
 const Button = styled.button`
   // width: 20%;
@@ -107,7 +107,6 @@ const ContentSection = styled.div`
   border-radius: 8px;
 `;
 
-
 const InfoTextB = styled.p`
   font-size: 16px; /* 텍스트 크기 조정 */
   color: #333; /* 텍스트 색상 */
@@ -117,7 +116,7 @@ const InfoTextB = styled.p`
   background-color: #f5f5f5;
   border-radius: 8px;
   padding: 10px;
-`
+`;
 
 const InfoText = styled.p`
   font-size: 16px; /* 텍스트 크기 조정 */
@@ -127,7 +126,7 @@ const InfoText = styled.p`
   padding-left: 10px; /* 왼쪽 패딩 추가 */
   border-radius: 8px;
   padding: 10px;
-`
+`;
 
 const Header = styled.h3`
   font-size: 25px; /* 폰트 크기 */
@@ -136,8 +135,6 @@ const Header = styled.h3`
   font-weight: bold;
   text-align: center;
 `;
-
-
 
 function AdminUserModal({ user, onClose, infoState, setInfoState }) {
   const [degree, setDegree] = useState();
@@ -205,152 +202,83 @@ function AdminUserModal({ user, onClose, infoState, setInfoState }) {
 
   if (!user) return null;
 
-
-  /*
-  let content = null;
-  
-  if (infoState === "user") {
-    content = (
-      <>
-        <h3>{user.name} 상세 정보</h3>
-
-        <p>id: {user.id}</p>
-        <p>이름: {user.name}</p>
-        <p>이메일: {user.email}</p>
-        <p>비밀번호: {user.password}</p>
-        <p>성별: {user.gender}</p>
-        <p>생년월일: {user.birth}</p>
-        <p>주소: {user.address}</p>
-        <p>등급: {user.member}</p>
-        <p>전화번호: {user.phoneNumber}</p>
-      </>
-    );
-  } else if (infoState === "degree") {
-    content = (
-      <>
-        <p>중학교: {degree?.middleSchool}</p>
-        <p>고등학교: {degree?.highSchool}</p>
-        <p>고등학교 전공: {degree?.highMajor}</p>
-        <p>대학교: {degree?.university}</p>
-        <p>대학교 전공:{degree?.universityMajor} </p>
-        <p>대학원: {degree?.graduateSchool}</p>
-        <p>대학원 전공: {degree?.graduateMajor}</p>
-      </>
-    );
-  } else if (infoState === "career") {
-    content = (
-      <>
-        <p>직업: {career?.job} </p>
-        <p>연봉: {career?.salary}</p>
-      </>
-    );
-  } else if (infoState === "profile") {
-    content = (
-      <>
-        <p>몸무게: {profile?.weight}</p>
-        <p>키: {profile?.height}</p>
-        <p>mbti: {profile?.mbti}</p>
-        <p>취미: {profile?.hobby}</p>
-        <p>병역 여부: {profile?.military}</p>
-        <p>종교: {profile?.religion}</p>
-        <p>재산: {profile?.wealth}</p>
-        <p>결혼 여부: {profile?.marriage}</p>
-        <p>질병 여부: {profile?.disease}</p>
-      </>
-    );
-  } else if (infoState === "family") {
-    content = (
-      <>
-        <p>어머니: {family?.mother}</p>
-        <p>아버지: {family?.father}</p>
-        <p>자식: {family?.child}</p>
-        <p>형제/자매: {family?.sibling}</p>
-      </>
-    );
-  }
-  */
-
-
   let content = (
     <>
-      <Header>{user.name} 상세 정보</Header>
-      <InfoTextB>id: {user.id}</InfoTextB>
-      <InfoTextB>이름: {user.name}</InfoTextB>
-      <InfoTextB>이메일: {user.email}</InfoTextB>
-      <InfoTextB>비밀번호: {user.password}</InfoTextB>
-      <InfoTextB>성별: {user.gender}</InfoTextB>
-      <InfoTextB>생년월일: {user.birth}</InfoTextB>
-      <InfoTextB>주소: {user.address}</InfoTextB>
-      <InfoTextB>등급: {user.member}</InfoTextB>
-      <InfoTextB>전화번호: {user.phoneNumber}</InfoTextB>
+      <Header>{user?.name} 상세 정보</Header>
+      <InfoTextB>id: {user?.id}</InfoTextB>
+      <InfoTextB>이름: {user?.name}</InfoTextB>
+      <InfoTextB>이메일: {user?.email}</InfoTextB>
+      <InfoTextB>비밀번호: {user?.password}</InfoTextB>
+      <InfoTextB>성별: {user?.gender}</InfoTextB>
+      <InfoTextB>생년월일: {user?.birth}</InfoTextB>
+      <InfoTextB>주소: {user?.address}</InfoTextB>
+      <InfoTextB>등급: {user?.member}</InfoTextB>
+      <InfoTextB>전화번호: {user?.phoneNumber}</InfoTextB>
     </>
   );
-  
+
   // 선택된 항목을 infoState에 따라 추가하기
   if (infoState === "degree") {
     content = (
       <>
         {content}
         <ContentSection>
-        <InfoText>고등학교: {degree.highSchool}</InfoText>
-        <InfoText>중학교: {degree.middleSchool}</InfoText>
-        <InfoText>고등학교 전공: {degree.highMajor}</InfoText>
-        <InfoText>대학교: {degree.university}</InfoText>
-        <InfoText>대학교 전공: {degree.universityMajor}</InfoText>
-        <InfoText>대학원: {degree.graduateSchool}</InfoText>
-        <InfoText>대학원 전공: {degree.graduateMajor}</InfoText>
+          <InfoText>고등학교: {degree?.highSchool}</InfoText>
+          <InfoText>중학교: {degree?.middleSchool}</InfoText>
+          <InfoText>고등학교 전공: {degree?.highMajor}</InfoText>
+          <InfoText>대학교: {degree?.university}</InfoText>
+          <InfoText>대학교 전공: {degree?.universityMajor}</InfoText>
+          <InfoText>대학원: {degree?.graduateSchool}</InfoText>
+          <InfoText>대학원 전공: {degree?.graduateMajor}</InfoText>
         </ContentSection>
       </>
     );
   }
-  
+
   if (infoState === "career") {
     content = (
       <>
         {content}
         <ContentSection>
-        <InfoText>직업: {career.job}</InfoText>
-        <InfoText>연봉: {career.salary}</InfoText>
+          <InfoText>직업: {career?.job}</InfoText>
+          <InfoText>연봉: {career?.salary}</InfoText>
         </ContentSection>
       </>
     );
   }
-  
+
   if (infoState === "profile") {
     content = (
       <>
         {content}
         <ContentSection>
-        <InfoText>몸무게: {profile.weight}</InfoText>
-        <InfoText>키: {profile.height}</InfoText>
-        <InfoText>mbti: {profile.mbti}</InfoText>
-        <InfoText>취미: {profile.hobby}</InfoText>
-        <InfoText>병역 여부: {profile.military}</InfoText>
-        <InfoText>종교: {profile.religion}</InfoText>
-        <InfoText>재산: {profile.wealth}</InfoText>
-        <InfoText>결혼 여부: {profile.marriage}</InfoText>
-        <InfoText>질병 여부: {profile.disease}</InfoText>
+          <InfoText>몸무게: {profile?.weight}</InfoText>
+          <InfoText>키: {profile?.height}</InfoText>
+          <InfoText>mbti: {profile?.mbti}</InfoText>
+          <InfoText>취미: {profile?.hobby}</InfoText>
+          <InfoText>병역 여부: {profile?.military}</InfoText>
+          <InfoText>종교: {profile?.religion}</InfoText>
+          <InfoText>재산: {profile?.wealth}</InfoText>
+          <InfoText>결혼 여부: {profile?.marriage}</InfoText>
+          <InfoText>질병 여부: {profile?.disease}</InfoText>
         </ContentSection>
       </>
     );
   }
-  
+
   if (infoState === "family") {
     content = (
       <>
         {content}
         <ContentSection>
-        <InfoText>어머니: {family.mother}</InfoText>
-        <InfoText>아버지: {family.father}</InfoText>
-        <InfoText>자식: {family.child}</InfoText>
-        <InfoText>형제/자매: {family.sibling}</InfoText>
+          <InfoText>어머니: {family?.mother}</InfoText>
+          <InfoText>아버지: {family?.father}</InfoText>
+          <InfoText>자식: {family?.child}</InfoText>
+          <InfoText>형제/자매: {family?.sibling}</InfoText>
         </ContentSection>
       </>
     );
   }
-  
-    
-  
 
   return (
     <ModalOverlay onClick={onClose}>
@@ -370,7 +298,7 @@ function AdminUserModal({ user, onClose, infoState, setInfoState }) {
             <ActionButton onClick={onClose}>고객 정보 수정</ActionButton>
             <ActionButton onClick={onClose}>고객 정보 삭제</ActionButton>
             <CloseButton onClick={onClose}>닫기</CloseButton>
-          </ButtonRow>  
+          </ButtonRow>
         </ButtonContainer>
       </ModalContent>
     </ModalOverlay>
