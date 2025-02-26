@@ -50,13 +50,14 @@ const TitleText = styled.div`
 // `;
 
 
-const ButtonReview = styled.button`
+const Button = styled.button`
   border: none;
   background-color: #e7a7a7;
   display: flex;
   align-items: center;
   font-weight: bold;
   font-size: 15px;
+  cursor: pointer;
 `
 
 const Content = styled.div`
@@ -107,7 +108,7 @@ function ReviewBar() {
       <Title>
         <TitleText>내 리뷰 현황</TitleText>
         {/* <TitleDetail>자세히보기</TitleDetail> */}
-        <ButtonReview>새 리뷰 작성</ButtonReview>
+        <Button onClick={() => navigate("/review/new")}>새 리뷰 작성</Button>
       </Title>
       <Content>
       {reviews.length > 0 ? (

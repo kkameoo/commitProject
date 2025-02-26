@@ -31,7 +31,7 @@ function SignUp() {
 
   const addUser = async () => {
     try {
-      const response = await fetch(apiUrl + "/api/user/join/agreement", {
+      const response = await fetch(apiUrl + "/api/user/join", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

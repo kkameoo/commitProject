@@ -20,6 +20,8 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import ReviewContent from "./review_components/ReviewContent"; // 추가
 import Header from "./components/header";
 
+import ReviewForm from "./review_components/ReviewForm";
+
 const themeContext = createContext(null);
 function App() {
   const [userSession, setUserSession] = useState(null);
@@ -92,6 +94,7 @@ function App() {
       <Route path="/Review" element={<Review />} />
       <Route path="/Reviews" element={<Reviews />} />
       <Route path="/review/:id" element={<ReviewContent />} /> {/* 상세 리뷰 페이지 */}
+      <Route path="/review/new" element={<ReviewForm />} />
 
       <Route path="/MyPage" element={<MyPage/>} />
       <Route path="/Admin" element={<Admin />} />
