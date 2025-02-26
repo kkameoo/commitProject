@@ -228,43 +228,43 @@ function AdminUserModal({ user, onClose, infoState, setInfoState }) {
   } else if (infoState === "degree") {
     content = (
       <>
-        <p>중학교: {degree.middleSchool}</p>
-        <p>고등학교: {degree.highSchool}</p>
-        <p>고등학교 전공: {degree.highMajor}</p>
-        <p>대학교: {degree.university}</p>
-        <p>대학교 전공:{degree.universityMajor} </p>
-        <p>대학원: {degree.graduateSchool}</p>
-        <p>대학원 전공: {degree.graduateMajor}</p>
+        <p>중학교: {degree?.middleSchool}</p>
+        <p>고등학교: {degree?.highSchool}</p>
+        <p>고등학교 전공: {degree?.highMajor}</p>
+        <p>대학교: {degree?.university}</p>
+        <p>대학교 전공:{degree?.universityMajor} </p>
+        <p>대학원: {degree?.graduateSchool}</p>
+        <p>대학원 전공: {degree?.graduateMajor}</p>
       </>
     );
   } else if (infoState === "career") {
     content = (
       <>
-        <p>직업: {career.job} </p>
-        <p>연봉: {career.salary}</p>
+        <p>직업: {career?.job} </p>
+        <p>연봉: {career?.salary}</p>
       </>
     );
   } else if (infoState === "profile") {
     content = (
       <>
-        <p>몸무게: {profile.weight}</p>
-        <p>키: {profile.height}</p>
-        <p>mbti: {profile.mbti}</p>
-        <p>취미: {profile.hobby}</p>
-        <p>병역 여부: {profile.military}</p>
-        <p>종교: {profile.religion}</p>
-        <p>재산: {profile.wealth}</p>
-        <p>결혼 여부: {profile.marriage}</p>
-        <p>질병 여부: {profile.disease}</p>
+        <p>몸무게: {profile?.weight}</p>
+        <p>키: {profile?.height}</p>
+        <p>mbti: {profile?.mbti}</p>
+        <p>취미: {profile?.hobby}</p>
+        <p>병역 여부: {profile?.military}</p>
+        <p>종교: {profile?.religion}</p>
+        <p>재산: {profile?.wealth}</p>
+        <p>결혼 여부: {profile?.marriage}</p>
+        <p>질병 여부: {profile?.disease}</p>
       </>
     );
   } else if (infoState === "family") {
     content = (
       <>
-        <p>어머니: {family.mother}</p>
-        <p>아버지: {family.father}</p>
-        <p>자식: {family.child}</p>
-        <p>형제/자매: {family.sibling}</p>
+        <p>어머니: {family?.mother}</p>
+        <p>아버지: {family?.father}</p>
+        <p>자식: {family?.child}</p>
+        <p>형제/자매: {family?.sibling}</p>
       </>
     );
   }
