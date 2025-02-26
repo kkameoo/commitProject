@@ -13,18 +13,31 @@ const ContentArea = styled.div`
   flex: 1;
   padding: 20px;
 `;
-function AdminDashboard({ users }) {
+function AdminDashboard({ users, degrees, careers, family }) {
   const [selectedFilters, setSelectedFilters] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
   const [infoState, setInfoState] = useState("user");
   // ✅ 필터링된 회원 목록 (추천 회원)
   const filteredUsers = users?.filter((user) =>
+    // const careerInfo = careers.filter((career) => {
+    //   return career.user_id == user.id;
+    // });
+    // console.log(careerInfo);
     Object.entries(selectedFilters).every(
       ([category, values]) =>
         values.length === 0 || values.includes(user[category])
     )
   );
-  console.log(users);
+
+  // const toggle1 = () => {
+  //   const filteredUsers = users?.filter((user) => {
+  //     // const userDegree = degrees.find((degree) => degree.id === user.degreeId);
+  //     const userCareer = careers.find((career) => career.user_id === user.id);
+  //     if(selectedFilters == ) {
+
+  //     }
+  //   });
+  // };
 
   return (
     <DashboardContainer>
@@ -36,6 +49,7 @@ function AdminDashboard({ users }) {
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
         />
+        <button onClick={() => toggle1()} />
 
         {/* 필터링된 회원 목록 */}
         <div>
