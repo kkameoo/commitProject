@@ -13,37 +13,12 @@ const ContentArea = styled.div`
   flex: 1;
   padding: 20px;
 `;
-
-const mockUsers = [
-  {
-    id: 1,
-    name: "김철수",
-    age: 25,
-    gender: "남",
-    job: "회사원",
-    marriageStatus: "초혼",
-    hobby: ["운동", "독서"],
-    profileImg: "",
-  },
-  {
-    id: 2,
-    name: "이영희",
-    age: 29,
-    gender: "여",
-    job: "학생",
-    marriageStatus: "초혼",
-    hobby: ["바이크"],
-    profileImg: "",
-  },
-];
-
 function AdminDashboard({ users }) {
   const [selectedFilters, setSelectedFilters] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
   const [infoState, setInfoState] = useState("user");
-  const [userList, setUserList] = useState();
   // ✅ 필터링된 회원 목록 (추천 회원)
-  const filteredUsers = mockUsers.filter((user) =>
+  const filteredUsers = users?.filter((user) =>
     Object.entries(selectedFilters).every(
       ([category, values]) =>
         values.length === 0 || values.includes(user[category])
@@ -65,7 +40,7 @@ function AdminDashboard({ users }) {
         {/* 필터링된 회원 목록 */}
         <div>
           <h3>🔍 추천 회원</h3>
-          {filteredUsers.length > 0 ? (
+          {filteredUsers?.length > 0 ? (
             filteredUsers.map((user) => <p key={user.id}>{user.name}</p>)
           ) : (
             <p>조건에 맞는 회원이 없습니다.</p>
