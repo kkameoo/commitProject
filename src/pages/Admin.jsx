@@ -17,7 +17,7 @@ function Admin() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setUsers(data);
       }
       if (!response.ok) {
@@ -33,7 +33,7 @@ function Admin() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setDegrees(data);
       }
       if (!response.ok) {
@@ -49,7 +49,7 @@ function Admin() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setCareers(data);
       }
       if (!response.ok) {
