@@ -40,44 +40,44 @@ const Content = styled.div`
   color: grey;
 `;
 
-function ContentBox() {
+function ContentBox({ profile }) {
   return (
     <Container>
       <Box>
         <Title>몸무게</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.weight}</Content>
       </Box>
       <Box>
         <Title>키</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.height}</Content>
       </Box>
       <Box>
         <Title>mbti</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.mbti}</Content>
       </Box>
       <Box>
         <Title>취미</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.hobby}</Content>
       </Box>
       <Box>
         <Title>군필여부</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.military}</Content>
       </Box>
       <Box>
         <Title>종교</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.religion}</Content>
       </Box>
       <Box>
         <Title>재산</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.wealth}</Content>
       </Box>
       <Box>
         <Title>결혼여부</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.marriage}</Content>
       </Box>
       <Box>
         <Title>질병여부</Title>
-        <Content>입력해주세요</Content>
+        <Content>{profile.disease}</Content>
       </Box>
     </Container>
   );

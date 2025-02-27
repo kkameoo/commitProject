@@ -174,9 +174,6 @@ function TopBar({ getDegree, getCareer, getProfile, getFamily }) {
         apiUrl + "/api/photo/upload?profileId=" + id,
         {
           method: "POST",
-          // headers: {
-          //   "Content-Type": "application/json",
-          // },
           body: formData,
           credentials: "include",
         }

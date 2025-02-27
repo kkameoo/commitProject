@@ -78,6 +78,11 @@ function Modal({
   careerInfo,
   modifyCareer,
   addCareer,
+  // profile 정보, 수정, 추가
+  profileInfo,
+  modifyProfile,
+  addProfileInfo,
+
   // family 정보, 수정 ,추가
   familyInfo,
   modifyFamily,
@@ -87,17 +92,7 @@ function Modal({
 
   const [career, setCareer] = useState(careerInfo);
 
-  const [profile, setProfile] = useState({
-    weight: "",
-    height: "",
-    mbti: "",
-    hobby: "",
-    military: "",
-    religion: "",
-    wealth: "",
-    marriage: "",
-    disease: "",
-  });
+  const [profile, setProfile] = useState(profileInfo);
 
   const [family, setFamily] = useState(familyInfo);
 
@@ -139,8 +134,6 @@ function Modal({
 
   let content = null;
   if (concept === "degree" && degree.id === "") {
-    // if(degree.id === "") {
-
     content = (
       <>
         <DegreeModalContent degree={degree} handleChange={degreeHandleChange} />
@@ -176,7 +169,7 @@ function Modal({
         </Bottom>
       </>
     );
-  } else if (concept === "profile") {
+  } else if (concept === "profile" && profile.id === "") {
     content = (
       <>
         <ProfileModalContent
@@ -184,7 +177,19 @@ function Modal({
           handleChange={profileHandleChange}
         />
         <Bottom>
-          <Button onClick={() => addState(profile)}>제출하기</Button>
+          <Button onClick={() => addProfileInfo(profile)}>제출하기</Button>
+        </Bottom>
+      </>
+    );
+  } else if (concept === "profile" && (profile.id = !"")) {
+    content = (
+      <>
+        <ProfileModalContent
+          profile={profile}
+          handleChange={profileHandleChange}
+        />
+        <Bottom>
+          <Button onClick={() => modifyProfile(profile)}>제출하기</Button>
         </Bottom>
       </>
     );

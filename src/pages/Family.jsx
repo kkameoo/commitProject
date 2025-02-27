@@ -89,7 +89,7 @@ function Family() {
 
   useEffect(() => {
     getFamily();
-    console.log("getfam발동");
+    // console.log("getfam발동");
   }, [family]);
 
   if (open === true) {
