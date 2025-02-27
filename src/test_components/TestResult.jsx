@@ -1,6 +1,13 @@
 //import styled from "styled-components";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { useNavigate } from "react-router-dom";
+
+// ✅ 배경 애니메이션 정의
+const animatedGradient = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
 
 // GlobalStyle을 사용하여 keyframes 애니메이션 정의
 const GlobalStyle = createGlobalStyle`
@@ -27,19 +34,37 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 80vh;
-  margin-top: 150px;
+  margin-top: 200px;
   margin-bottom: 50px;
   position: relative; /* 애니메이션을 위해 상대 위치로 설정 */
 `;
 
 const ResultText = styled.h2`
-  font-size: 1.5rem;
+  @font-face {
+      font-family: 'PyeongChangPeace-Bold';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+  }
+  font-family: 'PyeongChangPeace-Bold';
+  font-size: 2.3rem;
   margin-bottom: 20px;
   color: #d99696;
-  animation: popEffect 1.5s ease-out; /* 애니메이션 추가 */
+
+  /* ✅ 등장 애니메이션 & 핑크-하늘색 애니메이션 같이 적용 */
+  animation: popEffect 1.5s ease-out, animatedGradient 6s linear infinite;
+
+  /* ✅ 핑크 & 하늘색 그라디언트 적용 */
+  background: linear-gradient(90deg, #ff7eb3, #87cefa, #ff7eb3, #87cefa);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const RestartButton = styled.button`
+  
+  font-weight: bold;
   padding: 10px 20px;
   font-size: 1.2rem;
   background-color: #d99696;
@@ -49,9 +74,19 @@ const RestartButton = styled.button`
   border-radius: 5px;
   margin-top: 40px;
 
+   /* ✅ 핑크 & 하늘색 애니메이션 적용 */
+   background: linear-gradient(90deg, #ff7eb3, #87cefa, #ff7eb3, #87cefa);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ${animatedGradient} 6s linear infinite;
+
   &:hover {
     background-color: #c06c6c;
   }
+
+
 `;
 
 
@@ -68,6 +103,7 @@ const ActionContainer = styled.div`
   // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
   margin-top: 150px;
   color: #f38a8e;
+  margin-bottom: 120px;
 `;
 
 const ActionText = styled.p`

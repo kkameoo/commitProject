@@ -212,19 +212,25 @@ function ProfileModalContent({ profile, handleChange }) {
             onChange={handleChange}
             options={options.marriage} />
       <InputField 
-            title="질병여부"
-            type="radio"
-            name="disease"
-            value={profile.disease || ""}
-        onChange={handleDiseaseChange} 
-        options={[
-          { label: "질병 있음", value: "yes" },
-          { label: "질병 없음", value: "no" }
-        ]} 
+            title="추가 질병 선택"
+            type="checkbox"
+            name="diseaseTypes"
+            value={profile.diseaseTypes || []}  // ✅ 기본값을 빈 배열로 설정
+            onChange={handleChange} 
+            options={[
+              { label: "심장병 유전", value: "heart_disease" },
+              { label: "고혈압", value: "hypertension" },
+              { label: "당뇨병", value: "diabetes" },
+              { label: "심근경색 유전", value: "myocardial_infarction" },
+              { label: "암 가족력", value: "cancer" },
+              { label: "간 질환", value: "liver_disease" },
+              { label: "신장 질환", value: "kidney_disease" },
+              { label: "질환 없음", value: "no" }
+            ]}
       />
 
       {/* ✅ '질병 있음' 선택 시 추가 질병 리스트 표시 */}
-      {showDiseaseOptions && (
+      {/* {showDiseaseOptions && (
         <InputField 
           title="추가 질병 선택"
           type="checkbox"
@@ -241,7 +247,7 @@ function ProfileModalContent({ profile, handleChange }) {
             { label: "신장 질환", value: "kidney_disease" }
           ]}
         />
-      )}
+      )} */}
     </Container>
   );
 }

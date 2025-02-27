@@ -1,5 +1,13 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+// ✅ 배경 애니메이션 정의
+const animatedGradient = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
+
 
 const Container = styled.div`
   display: flex;
@@ -7,26 +15,61 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 80vh;
+  margin-bottom: 30px;
 `;
 
 const QuestionText = styled.h2`
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  @font-face {
+      font-family: 'HakgyoansimDunggeunmisoTTF-B';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+  }
+  font-family: 'HakgyoansimDunggeunmisoTTF-B';
+  font-size: 2.1rem;
+  margin-bottom: 50px;
+  margin-top: 50px;
+
+  /* ✅ 핑크 & 하늘색 애니메이션 적용 */
+  background: linear-gradient(90deg, #ff7eb3, #87cefa, #ff7eb3, #87cefa);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ${animatedGradient} 6s linear infinite;
 `;
 
 const OptionButton = styled.button`
+  @font-face {
+      font-family: 'HakgyoansimDunggeunmisoTTF-B';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+  }
+  font-family: 'HakgyoansimDunggeunmisoTTF-B';
+
+  width:300px;
+  height: 80px;
   padding: 10px;
   margin: 5px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: #f2f2f2;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   transition: 0.3s;
+  color:#8073fc;
+
+
+  /* ✅ 핑크 & 하늘색 그라디언트 */
+  background: linear-gradient(90deg, #ffcae0, #c8eaff, #ffcae0, #c8eaff);
+  background-size: 200% auto;
+  animation: ${animatedGradient} 6s linear infinite;
+
 
   &:hover {
     background-color: #d99696;
-    color: white;
+    color: #000000;
   }
 `;
 
