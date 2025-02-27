@@ -7,6 +7,7 @@ import { useAuth } from "../App";
 import { useLocation } from "react-router-dom";
 import NoInfo from "../profile_components/NoInfo";
 
+
 function Profile() {
   const location = useLocation();
   // console.log(location);
