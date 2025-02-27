@@ -6,6 +6,7 @@ import ProfileContent from "../profile_components/ProfileContent";
 import { useAuth } from "../App";
 import { useLocation } from "react-router-dom";
 
+
 function Profile() {
   const location = useLocation();
   // console.log(location);

@@ -65,6 +65,7 @@ const Bottom = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
+  margin-bottom: 90px;
 `;
 
 function Modal({
