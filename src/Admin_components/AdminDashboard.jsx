@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import AdminFilter from "./AdminFilter";
 import AdminUserList from "./AdminUserList";
@@ -82,19 +82,37 @@ function AdminDashboard({ users }) {
   const [selectedFilters, setSelectedFilters] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
   const [infoState, setInfoState] = useState("user");
-  const [userList, setUserList] = useState();
+  const [filterUser, setFilterUser] = useState({});
 
   // ✅ 필터링된 회원 목록 (추천 회원)
-  const filteredUsers = users?.filter((user) =>
-    // const careerInfo = careers.filter((career) => {
-    //   return career.user_id == user.id;
-    // });
-    // console.log(careerInfo);
-    Object.entries(selectedFilters).every(
-      ([category, values]) =>
-        values.length === 0 || values.includes(user[category])
-    )
-  );
+  // const filteredUsers = users?.filter((user) =>
+  //   // const careerInfo = careers.filter((career) => {
+  //   //   return career.user_id == user.id;
+  //   // });
+  //   // console.log(careerInfo);
+  //   Object.entries(selectedFilters).every(
+  //     ([category, values]) =>
+  //       values.length === 0 || values.includes(user[category])
+  //   )
+  // );
+  useEffect(() => {
+    // console.log(selectedFilters.job);
+    getState();
+    console.log(filterUser);
+  }, [selectedFilters]);
+
+  const getState = () => {
+    let custom = [];
+    if (selectedFilters.age?.includes("20대 초반")) {
+      custom = users.filter(
+        (user) =>
+          2025 - user.birth.substr(0, 4) >= 20 &&
+          2025 - user.birth.substr(0, 4) < 30
+      );
+      console.log(custom);
+      setFilterUser({ ...custom });
+    }
+  };
 
   // const toggle1 = () => {
   //   const filteredUsers = users?.filter((user) => {
@@ -124,9 +142,9 @@ function AdminDashboard({ users }) {
         <div>
           <h3>🔍 추천 회원</h3>
 
-          {filteredUsers?.length > 0 ? (
+          {filterUser?.length > 0 ? (
             <UserBoxContainer>
-              {filteredUsers.map((user) => (
+              {filterUser.map((user) => (
                 <UserBox key={user.id} onClick={() => setSelectedUser(user)}>
                   <UserProfileImg>
                     {user.profileImg ? (
