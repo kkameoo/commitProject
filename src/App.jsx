@@ -16,7 +16,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import ReviewContent from "./review_components/ReviewContent"; // 추가
 
 import ReviewForm from "./review_components/ReviewForm";
-import Header from "./src/components/Header";
+import Header from "./components/header";
 
 const themeContext = createContext(null);
 function App() {

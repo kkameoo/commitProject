@@ -136,7 +136,7 @@ function AdminDashboard({ users }) {
 
         {/* 필터링된 회원 목록 */}
         <div>
-          <h3>🔍 추천 회원</h3>5
+          <h3>🔍 추천 회원</h3>
           {filteredUsers?.length > 0 ? (
             <UserBoxContainer>
               {filteredUsers.map((user) => (

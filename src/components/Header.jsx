@@ -58,6 +58,7 @@ function Header({ userSession, deleteSession }) {
   const navigate = useNavigate();
 
   let content = null;
+  let adminContent = null;
 
   if (userSession === null) {
     content = (
@@ -65,6 +66,16 @@ function Header({ userSession, deleteSession }) {
     );
   } else {
     content = <MenuButton onClick={() => deleteSession()}>로그아웃</MenuButton>;
+  }
+
+  if (userSession?.member === "admin") {
+    adminContent = (
+      <MenuButton onClick={() => navigate("/admin")}>관리자페이지</MenuButton>
+    );
+  } else {
+    adminContent = (
+      <MenuButton onClick={() => navigate("/MyPage")}>마이페이지</MenuButton>
+    );
   }
 
   return (
@@ -76,8 +87,9 @@ function Header({ userSession, deleteSession }) {
       <MenuButton>고객서비스</MenuButton>
       <MenuButton onClick={() => navigate("/Test")}>회원테스트</MenuButton>
       <MenuButton onClick={() => navigate("/Reviews")}>회원리뷰</MenuButton>
-      <MenuButton onClick={() => navigate("/MyPage")}>마이페이지</MenuButton>
+      {/* <MenuButton onClick={() => navigate("/MyPage")}>마이페이지</MenuButton> */}
       {/* <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton> */}
+      {adminContent}
       {content}
       <MenuButton onClick={() => navigate("/SignUp")}>회원가입</MenuButton>
     </HeaderContainer>
