@@ -27,7 +27,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,12 +40,13 @@ const Container = styled.div`
 
 const ResultText = styled.h2`
   @font-face {
-      font-family: 'PyeongChangPeace-Bold';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
+    font-family: "PyeongChangPeace-Bold";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2")
+      format("woff2");
+    font-weight: 700;
+    font-style: normal;
   }
-  font-family: 'PyeongChangPeace-Bold';
+  font-family: "PyeongChangPeace-Bold";
   font-size: 2.3rem;
   margin-bottom: 20px;
   color: #d99696;
@@ -63,7 +63,6 @@ const ResultText = styled.h2`
 `;
 
 const RestartButton = styled.button`
-  
   font-weight: bold;
   padding: 10px 20px;
   font-size: 1.2rem;
@@ -74,8 +73,8 @@ const RestartButton = styled.button`
   border-radius: 5px;
   margin-top: 40px;
 
-   /* ✅ 핑크 & 하늘색 애니메이션 적용 */
-   background: linear-gradient(90deg, #ff7eb3, #87cefa, #ff7eb3, #87cefa);
+  /* ✅ 핑크 & 하늘색 애니메이션 적용 */
+  background: linear-gradient(90deg, #ff7eb3, #87cefa, #ff7eb3, #87cefa);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -85,10 +84,7 @@ const RestartButton = styled.button`
   &:hover {
     background-color: #c06c6c;
   }
-
-
 `;
-
 
 const ActionContainer = styled.div`
   display: flex;
@@ -137,43 +133,35 @@ const AuthButton = styled.button`
   }
 `;
 
-
-
-
 function TestResult({ score, setStep, setScore }) {
-    const navigate = useNavigate();
-    let resultText = "";
-    let actionMessage = "";
-  
-    if (score >= 50) {
-      resultText = "당신의 연애 스타일은 매우 주도적인 스타일입니다!";
-      actionMessage = "특별한 만남을 갖고 싶다면";
-    } else {
-      resultText = "당신의 연애 스타일은 다소 수동적인 스타일입니다.";
-      actionMessage = "점수를 높이고 싶다면 지금 바로";
-    }
+  const navigate = useNavigate();
+  let resultText = "";
+  let actionMessage = "";
 
+  if (score >= 50) {
+    resultText = "당신의 연애 스타일은 매우 주도적인 스타일입니다!";
+    actionMessage = "특별한 만남을 갖고 싶다면";
+  } else {
+    resultText = "당신의 연애 스타일은 다소 수동적인 스타일입니다.";
+    actionMessage = "점수를 높이고 싶다면 지금 바로";
+  }
 
-    
-    const handleRestart = () => {
-        console.log("클릭은 됨")
-        setScore(0);  // ✅ 점수 초기화
-        setStep("main");  // ✅ 처음 페이지로 이동
-        console.log("🔍 변경 후 score 값:", score); // ✅ setScore 적용 확인
-      };
+  const handleRestart = () => {
+    console.log("클릭은 됨");
+    setScore(0); // ✅ 점수 초기화
+    setStep("main"); // ✅ 처음 페이지로 이동
+    console.log("🔍 변경 후 score 값:", score); // ✅ setScore 적용 확인
+  };
 
-  
-    return (
-      <Container>
-        <GlobalStyle />
-        <ResultText>{resultText}</ResultText>
-        <ResultText>최종 점수: {score}</ResultText>
+  return (
+    <Container>
+      <GlobalStyle />
+      <ResultText>{resultText}</ResultText>
+      <ResultText>최종 점수: {score}</ResultText>
 
-  
-        <RestartButton onClick={handleRestart}>다시 하기</RestartButton>
+      <RestartButton onClick={handleRestart}>다시 하기</RestartButton>
 
-
-        {/* 로그인 & 회원가입 버튼 */}
+      {/* 로그인 & 회원가입 버튼 */}
       <ActionContainer>
         <ActionText>{actionMessage}</ActionText>
         <ButtonContainer>
@@ -181,10 +169,8 @@ function TestResult({ score, setStep, setScore }) {
           <AuthButton onClick={() => navigate("/SignUp")}>회원가입</AuthButton>
         </ButtonContainer>
       </ActionContainer>
-
-      </Container>
-    );
-  }
-
+    </Container>
+  );
+}
 
 export default TestResult;

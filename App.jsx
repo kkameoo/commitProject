@@ -14,8 +14,10 @@ import Company from "./pages/Company";
 import Test from "./pages/Test";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import ReviewContent from "./review_components/ReviewContent"; // 추가
-import Header from "./components/header";
+
 import ReviewForm from "./review_components/ReviewForm";
+import Header from "./src/components/Header";
+
 const themeContext = createContext(null);
 function App() {
   const [userSession, setUserSession] = useState(null);

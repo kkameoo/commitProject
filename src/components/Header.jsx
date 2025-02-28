@@ -28,12 +28,13 @@ const LogoImage = styled.img`
 `;
 
 const MenuButton = styled.button`
-@font-face {
-    font-family: 'Jal_Onuel';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Jal_Onuel.woff') format('woff');
+  @font-face {
+    font-family: "Jal_Onuel";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Jal_Onuel.woff")
+      format("woff");
     font-weight: normal;
     font-style: normal;
-}
+  }
 
   flex: 1;
   height: 100%;
@@ -45,7 +46,7 @@ const MenuButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
-  font-family: 'Jal_Onuel';
+  font-family: "Jal_Onuel";
 
   &:hover {
     background-color: #f28888;
@@ -53,16 +54,17 @@ const MenuButton = styled.button`
   }
 `;
 
-function Header({userSession,deleteSession}) {
+function Header({ userSession, deleteSession }) {
   const navigate = useNavigate();
 
   let content = null;
 
-  if(userSession === null) {(
-    content =  <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton>
-  )
+  if (userSession === null) {
+    content = (
+      <MenuButton onClick={() => navigate("/SignIn")}>로그인</MenuButton>
+    );
   } else {
-    content = <MenuButton onClick={() => deleteSession()}>로그아웃</MenuButton>
+    content = <MenuButton onClick={() => deleteSession()}>로그아웃</MenuButton>;
   }
 
   return (

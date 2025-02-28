@@ -1,20 +1,30 @@
 import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  LabelList,
+} from "recharts";
 
 // ✅ 연도별 성혼 성사율 데이터 (초기값 0, 이후 애니메이션 적용)
 const initialData = [
   { year: "2021", 남성: 0, 여성: 0 },
   { year: "2022", 남성: 0, 여성: 0 },
   { year: "2023", 남성: 0, 여성: 0 },
-  { year: "2024", 남성: 0, 여성: 0 } 
+  { year: "2024", 남성: 0, 여성: 0 },
 ];
 
 const finalData = [
   { year: "2021", 남성: 27, 여성: 34 },
   { year: "2022", 남성: 42, 여성: 40 },
   { year: "2023", 남성: 57, 여성: 64 },
-  { year: "2024", 남성: 85, 여성: 82 } 
+  { year: "2024", 남성: 85, 여성: 82 },
 ];
 
 // ✅ 전체 레이아웃 (차트 + 텍스트 + 버튼)
@@ -43,16 +53,17 @@ const ChartWrapper = styled.div`
 // ✅ 차트 제목 스타일
 const ChartTitle = styled.div`
   @font-face {
-    font-family: 'TheJamsil5Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-family: "TheJamsil5Bold";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
+      format("woff2");
     font-weight: 700;
     font-style: normal;
-}
+  }
 
-font-family: 'TheJamsil5Bold';
+  font-family: "TheJamsil5Bold";
   font-size: 33px;
   font-weight: bold;
-  color: #D9534F;
+  color: #d9534f;
   margin-bottom: 10px;
   text-align: center;
 `;
@@ -69,28 +80,30 @@ const InfoContainer = styled.div`
 // ✅ 제목 스타일
 const InfoTitle = styled.h2`
   @font-face {
-      font-family: 'SUNMOONUNIVERSITY';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/SUNMOONUNIVERSITY.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
+    font-family: "SUNMOONUNIVERSITY";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/SUNMOONUNIVERSITY.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
   }
 
-  font-family: 'SUNMOONUNIVERSITY';
+  font-family: "SUNMOONUNIVERSITY";
   font-size: 40px;
-  color: #D9534F;
+  color: #d9534f;
   margin-bottom: 15px;
 `;
 
 // ✅ 설명 스타일
 const InfoText = styled.p`
   @font-face {
-      font-family: 'SUNMOONUNIVERSITY';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/SUNMOONUNIVERSITY.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
+    font-family: "SUNMOONUNIVERSITY";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/SUNMOONUNIVERSITY.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
   }
 
-  font-family: 'SUNMOONUNIVERSITY';
+  font-family: "SUNMOONUNIVERSITY";
   font-size: 19px;
   color: #333;
   margin-bottom: 25px;
@@ -99,13 +112,14 @@ const InfoText = styled.p`
 // ✅ 버튼 스타일
 const InfoButton = styled.button`
   @font-face {
-      font-family: 'SUNMOONUNIVERSITY';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/SUNMOONUNIVERSITY.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
+    font-family: "SUNMOONUNIVERSITY";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/SUNMOONUNIVERSITY.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
   }
 
-  font-family: 'SUNMOONUNIVERSITY';
+  font-family: "SUNMOONUNIVERSITY";
   width: 340px;
   height: 80px;
   padding: 12px 18px;
@@ -119,7 +133,7 @@ const InfoButton = styled.button`
   transition: background 0.3s;
 
   &:hover {
-    background-color: #C9302C;
+    background-color: #c9302c;
   }
 `;
 
@@ -155,7 +169,7 @@ function ChartComponent() {
     const duration = 1000; // 애니메이션 지속 시간 (1초)
     const interval = 20; // 프레임 간격 (20ms)
     const steps = duration / interval;
-    
+
     const animate = setInterval(() => {
       progress += 1;
       if (progress > steps) {
@@ -168,11 +182,13 @@ function ChartComponent() {
       const ratio = progress / steps;
 
       // 비율에 맞춰 점진적으로 데이터 업데이트
-      setChartData(finalData.map((d) => ({
-        year: d.year,
-        남성: Math.round(d.남성 * ratio),
-        여성: Math.round(d.여성 * ratio),
-      })));
+      setChartData(
+        finalData.map((d) => ({
+          year: d.year,
+          남성: Math.round(d.남성 * ratio),
+          여성: Math.round(d.여성 * ratio),
+        }))
+      );
     }, interval);
   };
 
